@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="/css/manikin_golobal.css">
+</head>
+<style>
+    /* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background:rgb(28, 46, 102)a;
+}
+
+/* Main Section */
+.main-section {
+ margin-top: 40px;
+}
+
+.container {
+  
+  padding: 30px 40px 50px;
+  background:rgb(0, 18, 72);
+  position: relative;
+}
+
+/* Top Layout */
+.top-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 66px;
+}
+
+.text-content {
+  width: 55%;
+  
+}
+
+
+.text-content h1 {
+  color: #ff0000;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.text-content p {
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1.6;
+  max-width: 570px;
+}
+.text-content2 {
+  width: 55%;
+  
+  
+}
+.text-content2 h1 {
+  color: #ff0000;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  margin-left: 156px;
+}
+
+.text-content2 p {
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1.6;
+  max-width: 570px;
+  margin-left: 156px;
+}
+
+/* Right Image */
+.image-box {
+  position: relative;
+  width: 385px;
+}
+
+.image-box img {
+  width: 100%;
+  display: block;
+}
+
+.red-border {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 100%;
+  height: 100%;
+  border: 3px solid red;
+  z-index: 0;
+}
+
+/* Bottom Layout */
+.bottom-content {
+  margin-top: 40px;
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.left-img img {
+  width: 587px;
+  height: auto;
+}
+
+/* Features Box */
+.features-box {
+      background: rgb(255, 255, 255);
+    padding: 31px 29px;
+    margin-top: 142px;
+    width: 818px;
+    margin-left: -40px;
+    height:313px;
+}
+.features-box2 {
+      background: rgb(255, 255, 255);
+    padding: 31px 29px;
+    margin-top: 142px;
+    width: 818px;
+    margin-left: -40px;
+    height:313px;
+    margin-right: -41px;
+}
+
+.features-box2 h2 { 
+  color: #1c3df5;
+  font-size: 34px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.features-box2 ul {
+  padding-left: 18px;
+}
+
+.features-box2 li {
+  font-size:26px;
+  margin-bottom: 6px;
+  color: #000;
+}
+.features-box h2 {
+  color: #1c3df5;
+  font-size: 34px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.features-box ul {
+  padding-left: 18px;
+}
+
+.features-box li {
+  font-size:26px;
+  margin-bottom: 6px;
+  color: #000;
+}
+
+/* Button */
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.learn-btn {
+  background: #ff0000;
+  color: #fff;
+  border: none;
+  padding: 14px 50px;
+    font-size: 20px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  margin-top: -35px;
+    margin-left: 485px;
+}
+
+.learn-btn:hover {
+  background: #cc0000;
+}
+
+.learn-btn2 {
+  background: #ff0000;
+  color: #fff;
+  border: none;
+  padding: 14px 50px;
+    font-size: 20px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  margin-top: -35px;
+    margin-right: 500px;
+}
+
+.learn-btn:hover2 {
+  background: #cc0000;
+}
+
+
+/* Reverse only the layout inside second section */
+.main-section.reverse .top-content {
+  flex-direction: row-reverse;
+}
+
+.main-section.reverse .bottom-content {
+  flex-direction: row-reverse;
+}
+
+/* Responsive adjustments for mobile devices */
+@media screen and (max-width: 768px) {
+  .main-section.reverse .top-content {
+        flex-direction: column;
+    }
+     .main-section.reverse .top-content,
+    .main-section.reverse .bottom-content {
+        flex-direction: column;
+    }
+  .top-content,
+  .bottom-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .text-content,
+  .text-content2 {
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+    margin-top: -45px;
+    margin-bottom: 20px;
+  }
+
+  .text-content2 h1,
+  .text-content2 p {
+    margin-left: 0;
+  }
+
+  .image-box {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .image-box img {
+    width: 100%;
+    height: auto;
+  }
+
+  .left-img img {
+    width: 100%;
+    max-width: 587px;
+    height: auto;
+  }
+
+  .features-box,
+  .features-box2 {
+    width: 100%;
+    margin: 20px 0 0 0;
+    padding: 20px;
+    height: auto;
+  }
+
+  .btn-wrapper {
+    margin-top: 15px;
+  }
+
+  .learn-btn,
+  .learn-btn2 {
+    margin: 0 auto;
+    display: block;
+  }
+
+  .text-content h1,
+  .text-content2 h1 {
+    font-size: 28px;
+  }
+
+  .text-content p,
+  .text-content2 p {
+    font-size: 18px;
+    max-width: 100%;
+  }
+}
+</style>
+<body>
+     <div id="navbar-placeholder"></div>
+
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+  <div class="hero-blur-box">
+    <h1>
+      
+MEDTECH<br>
+      <span>SIMULATION CATALOG</span>
+    </h1>
+  </div>
+</div>
+
+
+    <!-- CHAT BUTTON -->
+    <button class="chat-btn">💬 Chat With Us!</button>
+  </section>
+  
+  <!-- section no 1 -->
+  <section class="main-section">
+    <div class="container">
+      
+      <!-- Top Content -->
+      <div class="top-content">
+        <div class="text-content">
+          <h1>ADVANCED MANIKIN WOMEN</h1>
+          <p>
+            Our Advanced Woman Manikin is a purpose-built to improve clinical confidence in all
+            training environments and reduce hesitation when delivering lifesaving trauma care.
+            This manikin facilitates the education and practice of advanced procedures like
+            ventilation, needle decompression, CPR and more.
+          </p>
+        </div>
+
+     <div class="image-box">
+  <span class="right-border"></span>
+  <img 
+    src="/static_files/images/task_trainer.png" 
+    alt="Advanced Manikin Wome"
+    style="width: 350px; height: 500px;"
+  ></div> 
+</div>
+      <!-- Bottom Content -->
+      <div class="bottom-content">
+        <div class="left-img">
+          <img src="/static_files/images/manikin-page-image.png" alt="Training" />
+        </div>
+
+        <div class="features-box">
+          <h2>Features and Benefits</h2>
+          <ul>
+            <li>Anatomically correct, environmentally rugged, reusable airway</li>
+            <li>Realistic procedures such as intubation and CPR</li>
+            <li>Durable, upper and lower extremity wounds</li>
+            <li>Displaceable humeral head, ribs & sternum</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="btn-wrapper">
+        <button class="learn-btn">Learn More</button>
+      </div>
+
+    </div>
+    </div>
+
+  </section>
+
+<!-- section no 2 -->
+
+   <section class="main-section reverse">
+    <div class="container">
+      
+      <!-- Top Content -->
+      <div class="top-content">
+        <div class="text-content2">
+          <h1>ADVANCED MANIKIN WOMEN</h1>
+          <p>
+            Our Advanced Woman Manikin is a purpose-built to improve clinical confidence in all
+            training environments and reduce hesitation when delivering lifesaving trauma care.
+            This manikin facilitates the education and practice of advanced procedures like
+            ventilation, needle decompression, CPR and more.
+          </p>
+        </div>
+
+     <div class="image-box">
+  <span class="right-border"></span>
+  <img 
+    src="/static_files/images/task_trainer.png" 
+    alt="Advanced Manikin Wome"
+    style="width: 350px; height: 500px;"
+  ></div> 
+</div>
+      <!-- Bottom Content -->
+      <div class="bottom-content">
+        <div class="left-img">
+          <img src="/static_files/images/manikin-page-image.png" alt="Training" />
+        </div>
+
+        <div class="features-box2">
+          <h2>Features and Benefits</h2>
+          <ul>
+            <li>Anatomically correct, environmentally rugged, reusable airway</li>
+            <li>Realistic procedures such as intubation and CPR</li>
+            <li>Durable, upper and lower extremity wounds</li>
+            <li>Displaceable humeral head, ribs & sternum</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="btn-wrapper">
+        <button class="learn-btn2">Learn More</button>
+      </div>
+
+    </div>
+    </div>
+
+  </section>
+
+   <!-- section no 1 -->
+  <section class="main-section">
+    <div class="container">
+      
+      <!-- Top Content -->
+      <div class="top-content">
+        <div class="text-content">
+          <h1>ADVANCED MANIKIN WOMEN</h1>
+          <p>
+            Our Advanced Woman Manikin is a purpose-built to improve clinical confidence in all
+            training environments and reduce hesitation when delivering lifesaving trauma care.
+            This manikin facilitates the education and practice of advanced procedures like
+            ventilation, needle decompression, CPR and more.
+          </p>
+        </div>
+
+     <div class="image-box">
+  <span class="right-border"></span>
+  <img 
+    src="/static_files/images/task_trainer.png" 
+    alt="Advanced Manikin Wome"
+    style="width: 350px; height: 500px;"
+  ></div> 
+</div>
+      <!-- Bottom Content -->
+      <div class="bottom-content">
+        <div class="left-img">
+          <img src="/static_files/images/manikin-page-image.png" alt="Training" />
+        </div>
+
+        <div class="features-box">
+          <h2>Features and Benefits</h2>
+          <ul>
+            <li>Anatomically correct, environmentally rugged, reusable airway</li>
+            <li>Realistic procedures such as intubation and CPR</li>
+            <li>Durable, upper and lower extremity wounds</li>
+            <li>Displaceable humeral head, ribs & sternum</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="btn-wrapper">
+        <button class="learn-btn">Learn More</button>
+      </div>
+
+    </div>
+    </div>
+
+  </section>
+
+<!-- section no 2 -->
+
+   <section class="main-section reverse">
+    <div class="container">
+      
+      <!-- Top Content -->
+      <div class="top-content">
+        <div class="text-content2">
+          <h1>ADVANCED MANIKIN WOMEN</h1>
+          <p>
+            Our Advanced Woman Manikin is a purpose-built to improve clinical confidence in all
+            training environments and reduce hesitation when delivering lifesaving trauma care.
+            This manikin facilitates the education and practice of advanced procedures like
+            ventilation, needle decompression, CPR and more.
+          </p>
+        </div>
+
+     <div class="image-box">
+  <span class="right-border"></span>
+  <img 
+    src="/static_files/images/task_trainer.png" 
+    alt="Advanced Manikin Wome"
+    style="width: 350px; height: 500px;"
+  ></div> 
+</div>
+      <!-- Bottom Content -->
+      <div class="bottom-content">
+        <div class="left-img">
+          <img src="/static_files/images/manikin-page-image.png" alt="Training" />
+        </div>
+
+        <div class="features-box2">
+          <h2>Features and Benefits</h2>
+          <ul>
+            <li>Anatomically correct, environmentally rugged, reusable airway</li>
+            <li>Realistic procedures such as intubation and CPR</li>
+            <li>Durable, upper and lower extremity wounds</li>
+            <li>Displaceable humeral head, ribs & sternum</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="btn-wrapper">
+        <button class="learn-btn2">Learn More</button>
+      </div>
+
+    </div>
+    </div>
+
+  </section>
+
+   <!-- section no 1 -->
+  <section class="main-section">
+    <div class="container">
+      
+      <!-- Top Content -->
+      <div class="top-content">
+        <div class="text-content">
+          <h1>ADVANCED MANIKIN WOMEN</h1>
+          <p>
+            Our Advanced Woman Manikin is a purpose-built to improve clinical confidence in all
+            training environments and reduce hesitation when delivering lifesaving trauma care.
+            This manikin facilitates the education and practice of advanced procedures like
+            ventilation, needle decompression, CPR and more.
+          </p>
+        </div>
+
+     <div class="image-box">
+  <span class="right-border"></span>
+  <img 
+    src="/static_files/images/task_trainer.png" 
+    alt="Advanced Manikin Wome"
+    style="width: 350px; height: 500px;"
+  ></div> 
+</div>
+      <!-- Bottom Content -->
+      <div class="bottom-content">
+        <div class="left-img">
+          <img src="/static_files/images/manikin-page-image.png" alt="Training" />
+        </div>
+
+        <div class="features-box">
+          <h2>Features and Benefits</h2>
+          <ul>
+            <li>Anatomically correct, environmentally rugged, reusable airway</li>
+            <li>Realistic procedures such as intubation and CPR</li>
+            <li>Durable, upper and lower extremity wounds</li>
+            <li>Displaceable humeral head, ribs & sternum</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="btn-wrapper">
+        <button class="learn-btn">Learn More</button>
+      </div>
+
+    </div>
+    </div>
+
+  </section>
+
+<!-- section no 2 -->
+
+   <section class="main-section reverse">
+    <div class="container">
+      
+      <!-- Top Content -->
+      <div class="top-content">
+        <div class="text-content2">
+          <h1>ADVANCED MANIKIN WOMEN</h1>
+          <p>
+            Our Advanced Woman Manikin is a purpose-built to improve clinical confidence in all
+            training environments and reduce hesitation when delivering lifesaving trauma care.
+            This manikin facilitates the education and practice of advanced procedures like
+            ventilation, needle decompression, CPR and more.
+          </p>
+        </div>
+
+     <div class="image-box">
+  <span class="right-border"></span>
+  <img 
+    src="/static_files/images/task_trainer.png" 
+    alt="Advanced Manikin Wome"
+    style="width: 350px; height: 500px;"
+  ></div> 
+</div>
+      <!-- Bottom Content -->
+      <div class="bottom-content">
+        <div class="left-img">
+          <img src="/static_files/images/manikin-page-image.png" alt="Training" />
+        </div>
+
+        <div class="features-box2">
+          <h2>Features and Benefits</h2>
+          <ul>
+            <li>Anatomically correct, environmentally rugged, reusable airway</li>
+            <li>Realistic procedures such as intubation and CPR</li>
+            <li>Durable, upper and lower extremity wounds</li>
+            <li>Displaceable humeral head, ribs & sternum</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="btn-wrapper">
+        <button class="learn-btn2">Learn More</button>
+      </div>
+
+    </div>
+    </div>
+
+  </section>
+
+   <!-- section no 1 -->
+  <section class="main-section">
+    <div class="container">
+      
+      <!-- Top Content -->
+      <div class="top-content">
+        <div class="text-content">
+          <h1>ADVANCED MANIKIN WOMEN</h1>
+          <p>
+            Our Advanced Woman Manikin is a purpose-built to improve clinical confidence in all
+            training environments and reduce hesitation when delivering lifesaving trauma care.
+            This manikin facilitates the education and practice of advanced procedures like
+            ventilation, needle decompression, CPR and more.
+          </p>
+        </div>
+
+     <div class="image-box">
+  <span class="right-border"></span>
+  <img 
+    src="/static_files/images/task_trainer.png" 
+    alt="Advanced Manikin Wome"
+    style="width: 350px; height: 500px;"
+  ></div> 
+</div>
+      <!-- Bottom Content -->
+      <div class="bottom-content">
+        <div class="left-img">
+          <img src="/static_files/images/manikin-page-image.png" alt="Training" />
+        </div>
+
+        <div class="features-box">
+          <h2>Features and Benefits</h2>
+          <ul>
+            <li>Anatomically correct, environmentally rugged, reusable airway</li>
+            <li>Realistic procedures such as intubation and CPR</li>
+            <li>Durable, upper and lower extremity wounds</li>
+            <li>Displaceable humeral head, ribs & sternum</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="btn-wrapper">
+        <button class="learn-btn">Learn More</button>
+      </div>
+
+    </div>
+    </div>
+
+  </section>
+
+<!-- section no 2 -->
+
+   <section class="main-section reverse">
+    <div class="container">
+      
+      <!-- Top Content -->
+      <div class="top-content">
+        <div class="text-content2">
+          <h1>ADVANCED MANIKIN WOMEN</h1>
+          <p>
+            Our Advanced Woman Manikin is a purpose-built to improve clinical confidence in all
+            training environments and reduce hesitation when delivering lifesaving trauma care.
+            This manikin facilitates the education and practice of advanced procedures like
+            ventilation, needle decompression, CPR and more.
+          </p>
+        </div>
+
+     <div class="image-box">
+  <span class="right-border"></span>
+  <img 
+    src="/static_files/images/task_trainer.png" 
+    alt="Advanced Manikin Wome"
+    style="width: 350px; height: 500px;"
+  ></div> 
+</div>
+      <!-- Bottom Content -->
+      <div class="bottom-content">
+        <div class="left-img">
+          <img src="/static_files/images/manikin-page-image.png" alt="Training" />
+        </div>
+
+        <div class="features-box2">
+          <h2>Features and Benefits</h2>
+          <ul>
+            <li>Anatomically correct, environmentally rugged, reusable airway</li>
+            <li>Realistic procedures such as intubation and CPR</li>
+            <li>Durable, upper and lower extremity wounds</li>
+            <li>Displaceable humeral head, ribs & sternum</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="btn-wrapper">
+        <button class="learn-btn2">Learn More</button>
+      </div>
+
+    </div>
+    </div>
+
+  </section>
+
+   <!-- section no 1 -->
+  <section class="main-section">
+    <div class="container">
+      
+      <!-- Top Content -->
+      <div class="top-content">
+        <div class="text-content">
+          <h1>ADVANCED MANIKIN WOMEN</h1>
+          <p>
+            Our Advanced Woman Manikin is a purpose-built to improve clinical confidence in all
+            training environments and reduce hesitation when delivering lifesaving trauma care.
+            This manikin facilitates the education and practice of advanced procedures like
+            ventilation, needle decompression, CPR and more.
+          </p>
+        </div>
+
+     <div class="image-box">
+  <span class="right-border"></span>
+  <img 
+    src="/static_files/images/task_trainer.png" 
+    alt="Advanced Manikin Wome"
+    style="width: 350px; height: 500px;"
+  ></div> 
+</div>
+      <!-- Bottom Content -->
+      <div class="bottom-content">
+        <div class="left-img">
+          <img src="/static_files/images/manikin-page-image.png" alt="Training" />
+        </div>
+
+        <div class="features-box">
+          <h2>Features and Benefits</h2>
+          <ul>
+            <li>Anatomically correct, environmentally rugged, reusable airway</li>
+            <li>Realistic procedures such as intubation and CPR</li>
+            <li>Durable, upper and lower extremity wounds</li>
+            <li>Displaceable humeral head, ribs & sternum</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="btn-wrapper">
+        <button class="learn-btn">Learn More</button>
+      </div>
+
+    </div>
+    </div>
+
+  </section>
+
+<!-- section no 2 -->
+
+   <section class="main-section reverse">
+    <div class="container">
+      
+      <!-- Top Content -->
+      <div class="top-content">
+        <div class="text-content2">
+          <h1>ADVANCED MANIKIN WOMEN</h1>
+          <p>
+            Our Advanced Woman Manikin is a purpose-built to improve clinical confidence in all
+            training environments and reduce hesitation when delivering lifesaving trauma care.
+            This manikin facilitates the education and practice of advanced procedures like
+            ventilation, needle decompression, CPR and more.
+          </p>
+        </div>
+
+     <div class="image-box">
+  <span class="right-border"></span>
+  <img 
+    src="/static_files/images/task_trainer.png" 
+    alt="Advanced Manikin Wome"
+    style="width: 350px; height: 500px;"
+  ></div> 
+</div>
+      <!-- Bottom Content -->
+      <div class="bottom-content">
+        <div class="left-img">
+          <img src="/static_files/images/manikin-page-image.png" alt="Training" />
+        </div>
+
+        <div class="features-box2">
+          <h2>Features and Benefits</h2>
+          <ul>
+            <li>Anatomically correct, environmentally rugged, reusable airway</li>
+            <li>Realistic procedures such as intubation and CPR</li>
+            <li>Durable, upper and lower extremity wounds</li>
+            <li>Displaceable humeral head, ribs & sternum</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="btn-wrapper">
+        <button class="learn-btn2">Learn More</button>
+      </div>
+
+    </div>
+    </div>
+
+  </section>
+
+   <!-- section no 1 -->
+  <section class="main-section">
+    <div class="container">
+      
+      <!-- Top Content -->
+      <div class="top-content">
+        <div class="text-content">
+          <h1>ADVANCED MANIKIN WOMEN</h1>
+          <p>
+            Our Advanced Woman Manikin is a purpose-built to improve clinical confidence in all
+            training environments and reduce hesitation when delivering lifesaving trauma care.
+            This manikin facilitates the education and practice of advanced procedures like
+            ventilation, needle decompression, CPR and more.
+          </p>
+        </div>
+
+     <div class="image-box">
+  <span class="right-border"></span>
+  <img 
+    src="/static_files/images/task_trainer.png" 
+    alt="Advanced Manikin Wome"
+    style="width: 350px; height: 500px;"
+  ></div> 
+</div>
+      <!-- Bottom Content -->
+      <div class="bottom-content">
+        <div class="left-img">
+          <img src="/static_files/images/manikin-page-image.png" alt="Training" />
+        </div>
+
+        <div class="features-box">
+          <h2>Features and Benefits</h2>
+          <ul>
+            <li>Anatomically correct, environmentally rugged, reusable airway</li>
+            <li>Realistic procedures such as intubation and CPR</li>
+            <li>Durable, upper and lower extremity wounds</li>
+            <li>Displaceable humeral head, ribs & sternum</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="btn-wrapper">
+        <button class="learn-btn">Learn More</button>
+      </div>
+
+    </div>
+    </div>
+
+  </section>
+
+<!-- section no 2 -->
+
+   <section class="main-section reverse">
+    <div class="container">
+      
+      <!-- Top Content -->
+      <div class="top-content">
+        <div class="text-content2">
+          <h1>ADVANCED MANIKIN WOMEN</h1>
+          <p>
+            Our Advanced Woman Manikin is a purpose-built to improve clinical confidence in all
+            training environments and reduce hesitation when delivering lifesaving trauma care.
+            This manikin facilitates the education and practice of advanced procedures like
+            ventilation, needle decompression, CPR and more.
+          </p>
+        </div>
+
+     <div class="image-box">
+  <span class="right-border"></span>
+  <img 
+    src="/static_files/images/task_trainer.png" 
+    alt="Advanced Manikin Wome"
+    style="width: 350px; height: 500px;"
+  ></div> 
+</div>
+      <!-- Bottom Content -->
+      <div class="bottom-content">
+        <div class="left-img">
+          <img src="/static_files/images/manikin-page-image.png" alt="Training" />
+        </div>
+
+        <div class="features-box2">
+          <h2>Features and Benefits</h2>
+          <ul>
+            <li>Anatomically correct, environmentally rugged, reusable airway</li>
+            <li>Realistic procedures such as intubation and CPR</li>
+            <li>Durable, upper and lower extremity wounds</li>
+            <li>Displaceable humeral head, ribs & sternum</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="btn-wrapper">
+        <button class="learn-btn2">Learn More</button>
+      </div>
+
+    </div>
+    </div>
+
+  </section>
+
+   <!-- section no 1 -->
+  <section class="main-section">
+    <div class="container">
+      
+      <!-- Top Content -->
+      <div class="top-content">
+        <div class="text-content">
+          <h1>ADVANCED MANIKIN WOMEN</h1>
+          <p>
+            Our Advanced Woman Manikin is a purpose-built to improve clinical confidence in all
+            training environments and reduce hesitation when delivering lifesaving trauma care.
+            This manikin facilitates the education and practice of advanced procedures like
+            ventilation, needle decompression, CPR and more.
+          </p>
+        </div>
+
+     <div class="image-box">
+  <span class="right-border"></span>
+  <img 
+    src="/static_files/images/task_trainer.png" 
+    alt="Advanced Manikin Wome"
+    style="width: 350px; height: 500px;"
+  ></div> 
+</div>
+      <!-- Bottom Content -->
+      <div class="bottom-content">
+        <div class="left-img">
+          <img src="/static_files/images/manikin-page-image.png" alt="Training" />
+        </div>
+
+        <div class="features-box">
+          <h2>Features and Benefits</h2>
+          <ul>
+            <li>Anatomically correct, environmentally rugged, reusable airway</li>
+            <li>Realistic procedures such as intubation and CPR</li>
+            <li>Durable, upper and lower extremity wounds</li>
+            <li>Displaceable humeral head, ribs & sternum</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="btn-wrapper">
+        <button class="learn-btn">Learn More</button>
+      </div>
+
+    </div>
+    </div>
+
+  </section>
+
+<!-- section no 2 -->
+
+   <section class="main-section reverse">
+    <div class="container">
+      
+      <!-- Top Content -->
+      <div class="top-content">
+        <div class="text-content2">
+          <h1>ADVANCED MANIKIN WOMEN</h1>
+          <p>
+            Our Advanced Woman Manikin is a purpose-built to improve clinical confidence in all
+            training environments and reduce hesitation when delivering lifesaving trauma care.
+            This manikin facilitates the education and practice of advanced procedures like
+            ventilation, needle decompression, CPR and more.
+          </p>
+        </div>
+
+     <div class="image-box">
+  <span class="right-border"></span>
+  <img 
+    src="/static_files/images/task_trainer.png" 
+    alt="Advanced Manikin Wome"
+    style="width: 350px; height: 500px;"
+  ></div> 
+</div>
+      <!-- Bottom Content -->
+      <div class="bottom-content">
+        <div class="left-img">
+          <img src="/static_files/images/manikin-page-image.png" alt="Training" />
+        </div>
+
+        <div class="features-box2">
+          <h2>Features and Benefits</h2>
+          <ul>
+            <li>Anatomically correct, environmentally rugged, reusable airway</li>
+            <li>Realistic procedures such as intubation and CPR</li>
+            <li>Durable, upper and lower extremity wounds</li>
+            <li>Displaceable humeral head, ribs & sternum</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="btn-wrapper">
+        <button class="learn-btn2">Learn More</button>
+      </div>
+
+    </div>
+    </div>
+
+  </section>
+
+<div id="footer-placeholder"></div>
+
+  <script>
+  fetch("../navbar.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Navbar file not found");
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById("navbar-placeholder").innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Error loading navbar:", error);
+    });
+</script>
+<script>
+  fetch("../footer.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Footer file not found");
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Error loading footer:", error);
+    });
+</script>
+
+    
+</body>
+</html>

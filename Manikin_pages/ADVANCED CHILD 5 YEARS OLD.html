@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> ADVANCED CHILD
+5 YEAR OLD</title>
+<link rel="stylesheet" href="/medtechsimulation-main/css/manikin_golobal.css" >
+</head>
+
+<body>
+
+     <div id="navbar-placeholder"></div>
+
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+  <div class="hero-blur-box">
+    <h1>
+  ADVANCED CHILD
+5 YEAR OLD DETAIL
+      <span></span>
+    </h1>
+  </div>
+</div>
+  <!-- CHAT BUTTON -->
+    <button class="chat-btn">💬 Chat With Us!</button>
+  </section>
+
+  <script>
+  fetch("../navbar.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Navbar file not found");
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById("navbar-placeholder").innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Error loading navbar:", error);
+    });
+</script>
+
+<section class="manikin-section">
+  <div class="manikin-container">
+
+    <!-- LEFT IMAGE BOX -->
+    <div class="image-box">
+         <span class="right-border"></span>
+      <img src="/static_files/images/Advanced Child 5 yrs_edited_edited_edited_edited.png" alt="Advanced Manikin Wome">
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="content-box">
+    <h2 class="title" >Advanced Child 5 YEAR OLD
+</h2>
+      <div class="desc-label">  <span></span>
+        Description</div>
+
+      <p class="description">
+     This hyper-realistic manikin simulates a 5-year-old patient and can be specified with male or female genitalia. Crafted with prosthetic-grade silicone in varying textures and consistencies, it provides lifelike tactile sensations and authentic physical feedback during training.
+<br>
+The Advanced Child Male/Female Manikin supports key clinical procedures, including needle decompression, CPR, intubation, and ventilation. Proportionally weighted and partially articulated limbs enhance realism, ensuring a true-to-life experience when practicing pediatric patient care.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+
+<div class="manikin-wrapper-title ">
+    <div class="manikin-wrapper-title-lable">
+ <h2>
+MANIKIN DETAIL</h2>
+    </div>
+   
+</div>
+
+<div class="manikin-wrapper">
+
+    <!-- LEFT MENU -->
+    <div class="manikin-tabs">
+        <button class="manikin-tab active" onclick="openTab(event,'features')">Features <span>➜</span></button>
+        <button class="manikin-tab" onclick="openTab(event,'circulation')">Circulation <span>➜</span></button>
+        <button class="manikin-tab" onclick="openTab(event,'airway')">Airway Management <span>➜</span></button>
+        <button class="manikin-tab" onclick="openTab(event,'hemorrhage')">Hemorrhage Control <span>➜</span></button>
+        <button class="manikin-tab" onclick="openTab(event,'respiration')">Respiration <span>➜</span></button>
+        <button class="manikin-tab" onclick="openTab(event,'head')">Head & Hypothermia <span>➜</span></button>
+        <button class="manikin-tab" onclick="openTab(event,'burn')">Burn Management <span>➜</span></button>
+        <button class="manikin-tab" onclick="openTab(event,'included')">What's Included <span>➜</span></button>
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="manikin-content">
+       
+
+        <div id="features" class="manikin-panel active">
+            <ul>
+                <li>Intubation-capable mouth and jaw</li>
+                <li>Ventilation-capable lungs</li>
+                <li>Supports chest compressions</li>
+                <li>Needle decompression at correct site</li>
+                <li>IO access capability</li>
+                <li>Realistic anatomy with flexible limbs</li>
+                <li>Manual eyelid movement</li>
+            </ul>
+        </div>
+
+        <div id="circulation" class="manikin-panel">
+            <ul>
+                <li>Chest compression support</li>
+                <li>Palpable anatomical landmarks</li>
+            </ul>
+        </div>
+
+        <div id="airway" class="manikin-panel">
+            <ul>
+                <li>Anatomically correct airway</li>
+                <li>Intubation-ready airway</li>
+                <li>Ventilation-capable lungs</li>
+            </ul>
+        </div>
+
+        <div id="hemorrhage" class="manikin-panel">
+            <ul>
+                <li>Needle decompression: 2nd intercostal space</li>
+            </ul>
+        </div>
+
+        <div id="respiration" class="manikin-panel">
+            <ul>
+                <li>Realistic chest rise with ventilation</li>
+            </ul>
+        </div>
+
+        <div id="head" class="manikin-panel">
+            <ul>
+                <li>Manual eyelid movement</li>
+            </ul>
+        </div>
+
+        <div id="burn" class="manikin-panel">
+            <ul>
+                <li>Supports burn management training</li>
+            </ul>
+        </div>
+
+        <div id="included" class="manikin-panel">
+            <ul>
+                <li>Integrated Bluetooth speaker</li>
+                <li>Maintenance kit (powder, brush, sweat & tears, cable)</li>
+                <li>Body bag</li>
+                <li>Underwear</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div id="footer-placeholder"></div>
+
+<script>
+function openTab(event, tabId) {
+    const tab = event.currentTarget;
+    const panel = document.getElementById(tabId);
+
+    if (window.innerWidth > 768) {
+        // Desktop: normal tab behavior
+        document.querySelectorAll('.manikin-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.manikin-tab').forEach(t => t.classList.remove('active'));
+
+        tab.classList.add('active');
+        panel.classList.add('active');
+    } else {
+        // Mobile accordion: toggle clicked tab
+        const isActive = panel.classList.contains('active');
+
+        // Close all panels
+        document.querySelectorAll('.manikin-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.manikin-tab').forEach(t => t.classList.remove('active'));
+
+        // Only open if it was not already active
+        if (!isActive) {
+            tab.classList.add('active');
+            panel.classList.add('active');
+        }
+    }
+}
+
+</script>
+
+<script>
+  fetch("../footer.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Footer file not found");
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Error loading footer:", error);
+    });
+</script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MedTech Simulation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+    <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url("/static_files/images/banner_image.jpeg") center / cover no-repeat;
+  display: flex;
+  align-items: flex-start;     /* aligns vertically to top */
+  justify-content: flex-start; /* aligns content to left */
+  padding-left: 60px;          /* distance from left edge */
+  padding-top: 60px;           /* distance from top */
+}
+
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-content {
+  position: relative;
+  max-width: 600px;
+}
+.hero-blur-box {
+  padding: 50px 40px;               /* more padding = taller box */
+  background: rgba(0, 0, 0, 0.15);  /* dark glass effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(8px); /* Safari support */
+  border-radius: 6px;
+  display: block;                    /* allows width/height to work */
+  width: 800px;                      /* width of the blur box */
+  min-height: 200px;                 /* increased height */
+  text-align: left;                  /* content aligned left */
+  margin: 150px 0 0 0;                /* space from top, left edge of container */
+}
+
+
+.hero-content h1 {
+  color: #fff;
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+}
+.hero-content span {
+  display: inline-block;
+  margin-top: 10px;
+  max-width: 320px;
+  max-height: 520px;
+  width: auto;
+  height: auto;
+}
+
+/* CHAT BUTTON */
+.chat-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #0b1e5b;
+  color: #ffffff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(2,12,35,0.12);
+}
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 25px;
+  }
+
+  .navbar nav {
+    display: none;
+  }
+
+  .hero {
+    padding-left: 25px;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+  }
+}
+
+/* CATEGORIES SECTION */
+.categories {
+  background: rgb(0, 18, 72);
+  padding: 70px 40px;
+}
+
+.categories-inner {
+  max-width: 1300px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+}
+
+.category-card {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 4px;
+  text-decoration: none;
+  
+  
+  background: url("static_files/images/background_glass.jpg");
+}
+
+/* background image */
+.categories-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: contain;      /* image fills card */
+  background-position: center;  /* keeps image centered */
+  transition: transform 0.5s ease;
+}
+
+
+/* subtle dark overlay */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* content bottom */
+/* content bottom - centered horizontally */
+.card-content {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+/* label box */
+.card-label {
+  display: inline-flex;
+  align-items: stretch;
+  background: #fff;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: 1px;
+  color: #002060;
+}
+
+/* left text box */
+.card-label .label-text {
+  padding: 14px 22px;
+  display: flex;
+  align-items: center;
+}
+
+/* right tall arrow box */
+.card-label .label-arrow {
+  width: 48px;
+  background: #ffffff;
+   display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  font-weight: 700;
+  color: #002060;
+}
+.card-label .label-arrow {
+  padding: 18px 0;
+}
+
+
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .categories-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .category-card {
+    height: 360px;
+  }
+
+  .card-content {
+    left: 20px;
+    bottom: 20px;
+  }
+}
+
+
+/* MAIN SECTION */
+.hero-section {
+  background: #1c2f63;
+  padding: 80px 60px;
+}
+
+/* FLEX CONTAINER */
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* LEFT TEXT */
+.hero-content-info {
+  max-width: 600px;
+  color: #ffffff;
+}
+
+.hero-content-info h1 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #ff0000;
+  margin-bottom: 25px;
+}
+
+.hero-content-info p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+/* Red rectangle background */
+.hero-btn-wrapper {
+  display: inline-block;      /* NOT ruby-base-container */
+  background: transparent;    /* inside transparent */
+  padding: 4px;               /* space between red frame & button */
+  border: 2px solid red;      /* red rectangle border */
+}
+
+/* BUTTON */
+.hero-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: #0b1e5b;
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 2px;
+  border:none;
+  transition: all 0.3s ease;
+  position: relative;        /* relative to wrapper */
+  left: 15px;  
+}
+
+.hero-btn:hover {
+  background: #ff0000;
+  color: #ffffff;
+}
+
+/* RIGHT IMAGE AREA */
+.hero-image-wrapper {
+  background: #f2f2f2;
+  padding: 40px;
+  height: 600px;
+}
+.hero-image-frame {
+  display: inline-block;
+  padding: 8px;           /* red border thickness */
+  border: 4px solid blue;  /* red rectangle */
+  background: transparent;
+  overflow: visible;      /* allow child overflow */
+  position: relative;
+}
+
+.hero-image-box {
+  background: url("static_files/images/background_glass.jpg") no-repeat center;
+  background-size: auto;
+  width: 500px;           /* wider than the red rectangle */
+  height: 500px;
+  position: relative;
+  margin-left: 30px;     /* move left to overflow red rectangle */
+}
+
+
+.hero-image-box img {
+  max-width: 500px;
+  display: block;
+  transform: scale(1.2);   /* zoom level */
+}
+
+/* SECTION */
+.catalog-section {
+  background: #1c2f63;
+  padding: 80px 60px;
+  text-align: center;
+}
+
+/* TITLE */
+.catalog-title {
+  color: #ff0000;
+  font-size: 34px;
+  font-weight: 800;
+  margin-bottom: 60px;
+}
+
+/* GRID */
+.catalog-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+/* CARD */
+.catalog-card {
+  width: 400px;
+  height: 600px;
+}
+
+/* IMAGE AREA */
+.card-bg {
+  background: linear-gradient(135deg, #b9f0ff, #eafcff);
+  padding: 30px 20px 50px;
+}
+
+.card-bg img {
+  width: 100%;
+  height: auto;
+}
+
+/* FOOTER */
+.card-footer {
+  background: #ffffff;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-footer span {
+  font-weight: 600;
+  color: #0b1e5b;
+}
+
+/* ARROW BUTTON */
+.arrow-btn {
+  width: 44px;
+  height: 44px;
+  border: 2px solid #0b1e5b;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #0b1e5b;
+  font-size: 16px;
+  background: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(2,12,35,0.08);
+}
+
+.arrow-btn:hover {
+  background: #0b1e5b;
+  color: #ffffff;
+}
+
+/* VIEW ALL */
+.view-all a {
+  background: #ffffff;
+  color: #0000ff;
+  padding: 14px 36px;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 2px;
+}
+
+/* adjust catalog layout on smaller screens */
+@media (max-width: 992px) {
+  .catalog-grid { flex-direction: column; gap: 28px; }
+  .catalog-card { width: 100%; max-width: 420px; margin: 0 auto; height: auto; }
+  .card-bg { padding: 18px; }
+  .card-footer { position: static; transform: none; margin: 18px auto 0; }
+  .arrow-btn { margin-left: 12px; }
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+  <div class="hero-blur-box">
+    <h1>
+      WELCOME TO<br>
+      <span>MEDTECH SIMULATION</span>
+    </h1>
+  </div>
+</div>
+
+
+    <!-- CHAT BUTTON -->
+    <button class="chat-btn">💬 Chat With Us!</button>
+  </section>
+
+  <section class="categories">
+  <div class="categories-inner">
+
+    <!-- CARD 1 -->
+    <a href="#" class="category-card">
+      <div class="categories-bg" style="background-image:url('/static_files/images/Mainkin.png');"></div>
+      <div class="card-overlay"></div>
+
+      <div class="card-content">
+        <div class="card-label">
+  <span class="label-text">MANIKIN</span>
+ 
+  </div>
+  <span class="label-arrow">→</span>
+</div>
+
+     
+    </a>
+
+    <!-- CARD 2 -->
+    <a href="#" class="category-card">
+      <div class="categories-bg" style="background-image:url('/static_files/images/task_trainer.png');"></div>
+      <div class="card-overlay"></div>
+
+      <div class="card-content">
+        <div class="card-label">
+           <span class="label-text">Task Trainers</span>
+  <span class="label-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- CARD 3 -->
+    <a href="#" class="category-card">
+      <div class="categories-bg" style="background-image:url('/static_files/images/comparison_chart.jpg');"></div>
+      <div class="card-overlay"></div>
+
+      <div class="card-content">
+        <div class="card-label">
+           <span class="label-text">Comparsion Chart</span>
+  <span class="label-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<section class="hero-section">
+  <div class="hero-container">
+
+    <!-- LEFT CONTENT -->
+    <div class="hero-content-info">
+      <h1>
+        Hyper-Realistic Training,<br>
+        Anytime You Need It
+      </h1>
+
+      <p>
+        “This website will serve as MedTech’s official U.S. home for SIMBODIES trauma
+        simulation manikins. It will showcase the full product line, highlight their
+        hyper-realistic training capabilities, and explain how EMS programs can use
+        SIMBODIES in classroom, lab, and field simulations.
+        <br><br>
+        The site will present MedTech’s national SIMBODIES training pathway, including
+        virtual unboxing/orientation, on-site simulation training, and CAPCE-accredited
+        continuing education. It should clearly position MedTech as the trusted,
+        mission-driven distributor with a manufacturer-trained field team, and make it
+        simple for schools to learn about the products, request demos, schedule training,
+        and contact the sales team.”
+      </p>
+
+     <div class="hero-btn-wrapper">
+  <a href="#" class="hero-btn">Get Started</a>
+</div>
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="hero-image-wrapper">
+       <div class="hero-image-frame">
+           <div class="hero-image-box">
+        <img src="/static_files/images/Advanced Child 10 yrs_home.png" alt="SIMBODIES Manikin">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="catalog-section">
+  <h2 class="catalog-title">MANIKIN CATALOG</h2>
+
+  <div class="catalog-grid">
+
+    <!-- CARD 1 -->
+    <div class="catalog-card">
+      <div class="card-bg">
+        <img src="/static_files/images/Advanced Child 5 yrs_edited_edited_edited_edited.png" alt="Advance Child">
+      </div>
+      <div class="card-footer">
+        <span>Advance Child</span>
+        <a href="#" class="arrow-btn">➜</a>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="catalog-card">
+      <div class="card-bg">
+        <img src="/static_files/images/Burnt Manikin (1)_edited_edited_edited_edited_edited.png" alt="Burnt Manikin">
+      </div>
+      <div class="card-footer">
+        <span>Burnt Manikin</span>
+        <a href="#" class="arrow-btn">➜</a>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="catalog-card">
+      <div class="card-bg">
+        <img src="/static_files/images/Blasted Manikin_edited_edited_edited_edited.png" alt="Blasted Manikin">
+      </div>
+      <div class="card-footer">
+        <span>Blasted Manikin</span>
+        <a href="#" class="arrow-btn">➜</a>
+      </div>
+    </div>
+    </div>
+
+ 
+
+  <div class="view-all">
+    <a href="#">View All ></a>
+  </div>
+</section>
+<div id="footer-placeholder"></div>
+<script>
+  fetch("footer.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Footer file not found");
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Error loading footer:", error);
+    });
+</script>
+
+
+
+<script>
+  fetch("navbar.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Navbar file not found");
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById("navbar-placeholder").innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Error loading navbar:", error);
+    });
+</script>
+
+</body>
+</html>

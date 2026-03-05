@@ -1,0 +1,249 @@
+<!-- NAVBAR -->
+ <header class="navbar">
+    <div class="nav-left">
+    <div class="logo">
+      <a href="/">
+        <img 
+          src="/static_files/images/MedTech_Square_Logo_HD-Square.png"
+          alt="MedTech Simulation Logo"
+        >
+      </a>
+    </div>
+
+    <nav id="mobile-nav" role="navigation" aria-label="Main site navigation" aria-hidden="true">
+      <a href="#">Manikin Catalog</a>
+      <a href="#">Task Trainers</a>
+      <a href="#">Comparison Chart</a>
+      <a href="#">About Us</a>
+      <a href="#">Contact Us</a>
+    </nav>
+  </div>
+
+  <!-- HAMBURGER -->
+  <button class="hamburger" id="hamburger" type="button" aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle navigation">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </button>
+</header>
+
+  <style>
+    /* NAVBAR */
+.navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 70px;          /* FIXED NAVBAR HEIGHT */
+  padding: 0 60px;       /* remove vertical padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(31, 31, 31);
+  z-index: 10;
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-left nav {
+  margin-left: 260px;
+  display: flex;
+  align-items: flex-end; /* 👈 push links to bottom */
+  height: 100%;
+}
+
+
+.logo {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  max-height: 100px;   /* 👈 adjust freely */
+  width: auto;
+}
+
+.navbar nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 30px;
+  font-size: 14px;
+  text-transform: uppercase;
+   padding-bottom: 20px;  /* 👈 move closer to bottom */
+  line-height: 1;
+ 
+}
+/* HAMBURGER ICON */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+  padding: 8px;
+  align-items: center;
+  background: transparent;
+  border: none;
+}
+
+.hamburger:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(31, 123, 255, 0.15);
+  border-radius: 6px;
+}
+
+.hamburger span {
+  width: 26px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* TABLET & MOBILE MENU */
+@media (max-width: 992px) {
+
+  .navbar {
+    position: relative;
+    padding: 60px 20px;
+  }
+
+  .logo img {
+    height: 170px;
+  }
+
+  /* show hamburger */
+  .hamburger {
+    display: flex;
+  }
+
+  /* transform nav into collapsible panel */
+  .navbar nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgb(31, 31, 31);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 300ms ease, padding 200ms ease;
+  }
+
+  .navbar nav a {
+    margin: 0;
+    padding: 14px 20px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 15px;
+  }
+
+  /* when menu is open */
+  .navbar nav.active {
+    padding: 8px 0 12px;
+    max-height: 800px; /* large enough for menu, allows transition */
+  }
+
+  /* Open animations: panel slide + item stagger */
+  .navbar nav {
+    transform: translateY(-6px);
+    opacity: 0;
+    transition: max-height 320ms cubic-bezier(.2,.8,.2,1), transform 300ms ease, opacity 220ms ease;
+  }
+
+  .navbar nav.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .navbar nav a {
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 260ms ease, transform 260ms ease;
+  }
+
+  .navbar nav.active a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered delays for up to 8 items */
+  .navbar nav.active a:nth-child(1) { transition-delay: 80ms; }
+  .navbar nav.active a:nth-child(2) { transition-delay: 140ms; }
+  .navbar nav.active a:nth-child(3) { transition-delay: 200ms; }
+  .navbar nav.active a:nth-child(4) { transition-delay: 260ms; }
+  .navbar nav.active a:nth-child(5) { transition-delay: 320ms; }
+  .navbar nav.active a:nth-child(6) { transition-delay: 380ms; }
+  .navbar nav.active a:nth-child(7) { transition-delay: 440ms; }
+  .navbar nav.active a:nth-child(8) { transition-delay: 500ms; }
+
+  /* Hamburger line animation smoothing */
+  .hamburger span { transform-origin: center; }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .navbar nav,
+    .navbar nav a,
+    .hamburger span {
+      transition: none !important;
+    }
+  }
+}
+  </style>
+
+  <script>
+  const hamburger = document.getElementById("hamburger");
+  const mobileNav = document.getElementById("mobile-nav");
+  hamburger.addEventListener("click", () => {
+    const isActive = mobileNav.classList.toggle("active");
+    hamburger.classList.toggle("active", isActive);
+    // accessibility
+    hamburger.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+    mobileNav.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+    // generate random items once per session to demo animation
+    if (isActive && !mobileNav.dataset.randomized) {
+      generateRandomItems();
+      mobileNav.dataset.randomized = '1';
+    }
+  });
+
+  // close menu when clicking outside (on tablet/mobile)
+  document.addEventListener('click', (e) => {
+    const withinNav = e.target.closest('.navbar');
+    if (!withinNav && mobileNav.classList.contains('active')) {
+      mobileNav.classList.remove('active');
+      mobileNav.setAttribute('aria-hidden', 'true');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // -- random menu generator (for demo/animation) --
+  function generateRandomItems() {
+    const labels = ['Alpha','Bravo','Charlie','Delta','Echo','Foxtrot','Golf','Hotel','India','Juliet'];
+    const count = Math.floor(Math.random() * 4) + 5; // 5-8 items
+    const frag = document.createDocumentFragment();
+    for (let i = 0; i < count; i++) {
+      const a = document.createElement('a');
+      a.href = '#';
+      a.textContent = labels[Math.floor(Math.random() * labels.length)] + ' ' + (i + 1);
+      a.className = 'random-item';
+      frag.appendChild(a);
+    }
+    // prepend so demo items animate first
+    mobileNav.prepend(frag);
+  }
+</script>

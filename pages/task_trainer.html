@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/manikin_golobal.css">
+    <style>
+
+
+
+
+        /* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Section Background */
+.task-section {
+  background: rgb(28, 46, 102); /* navy blue */
+  padding: 100px 20px 40px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Title Wrapper for red outline offset */
+.title-wrapper {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+/* Red outline box behind */
+.title-wrapper::after {
+  content: "";
+  position: absolute;
+  top: -15px;
+  right: -20px;
+  width: 100%;
+  height: 100%;
+  border: 3px solid red;
+  z-index: 0;
+}
+
+/* Grey Title Box */
+.title-box {
+  position: relative;
+  background:rgb(232, 230, 230);
+  color: red;
+  font-size: 72px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  padding: 20px 60px;
+  z-index: 1;
+}
+
+/* Paragraph Text */
+.description {
+  max-width: 900px;
+  margin: 0 auto;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .title-box {
+    font-size: 42px;
+    padding: 15px 30px;
+  }
+
+  .description {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+
+  .title-wrapper::after {
+    top: -10px;
+    right: -12px;
+  }
+}
+   
+
+
+.ems-section {
+  padding: 80px 60px;
+  background: #0c1e4a; /* dark navy */
+   margin-bottom: 40px;
+}
+
+
+.ems-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+
+/* LEFT SIDE */
+.ems-left {
+  flex: 1;
+  color: white;
+}
+
+.ems-title {
+  font-size: 50px;
+  font-weight: 900;
+  color: rgb(255, 0, 0);
+  margin-bottom: 35px;
+}
+.ems-title2 {
+  font-size: 50px;
+  font-weight: 900;
+  color: rgb(255, 0, 0);
+  margin-bottom: 35px;
+  margin-left: 55px;
+}
+
+.ems-desc {
+  font-size: 21px;
+  line-height: 1.2;
+  max-width: 600px;
+  margin-bottom: 75px;
+  color:#cfcfcf;}
+
+  .ems-desc2 {
+  font-size: 21px;
+  line-height: 1.2;
+  max-width: 600px;
+  margin-bottom: 75px;
+  color:#cfcfcf;
+    margin-left: 0;
+}
+
+/* Feature grey bar with red offset border */
+.feature-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 25px;
+}
+
+.feature-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -12px;
+  width: 100%;
+  height: 100%;
+  border: 3px solid red;
+  z-index: 0;
+}
+
+.feature-box {
+  position: relative;
+  background: #cfcfcf;
+  color:rgb(15, 0, 151);
+  font-weight: 800;
+  padding: 16px 80px;
+  font-size: 22px;
+  z-index: 1;
+}
+.feature-box2 {
+  position: relative;
+  background: #cfcfcf;
+  color:rgb(15, 0, 151);
+  font-weight: 800;
+  padding: 16px 100px;
+  font-size: 22px;
+  z-index: 1;
+}
+/* Feature List */
+.feature-list {
+  margin: 15px 0 35px 0;
+  padding-left: 18px;
+  line-height: 1.4;
+  font-size: 18px;
+  color:#cfcfcf;
+}
+.feature-list2 {
+  margin: 15px 0 35px 0;
+  padding-left: 18px;
+  line-height: 1.6;
+  font-size: 18px;
+  color:#cfcfcf;
+}
+
+.feature-list li {
+  margin-bottom: 5px;
+}
+
+/* Button */
+.learn-btn {
+  display: inline-block;
+  background: rgb(255, 0, 0);
+  color: white;
+  padding: 14px 45px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 2px;
+  transition: 0.3s ease;
+  margin-left: 0;
+}
+.learn-btn2 {
+  display: inline-block;
+  background: rgb(255, 0, 0);
+  color: white;
+  padding: 14px 45px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 2px;
+  transition: 0.3s ease;
+  margin-left: 0;
+}
+.learn-btn:hover {
+  background: rgb(15, 0, 151);
+}
+
+/* RIGHT IMAGE FRAME */
+.ems-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image-frame {
+  position: relative;
+  padding: 10px;
+}
+
+.image-frame::after {
+  content: "";
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 100%;
+  height: 100%;
+  border: 3px solid red;
+  z-index: 0;
+}
+
+.image-frame img {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Alternate layout */
+.ems-section.reverse .ems-container {
+  flex-direction: row-reverse;
+}
+/* Responsive */
+@media (max-width: 900px) {
+  .ems-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ems-title {
+    font-size: 42px;
+  }
+
+  .image-frame img {
+    width: 280px;
+  }
+}
+/* Tablet: widths <= 1199px */
+@media (max-width: 1199px) {
+  .ems-section {
+    padding: 60px 30px;
+  }
+
+  .ems-container {
+    gap: 30px;
+    max-width: 1000px;
+    padding: 0 18px;
+  }
+
+  .ems-left {
+    text-align: left;
+  }
+
+  .ems-title,
+  .ems-title2 {
+    font-size: 40px;
+    margin-left: 0;
+  }
+
+  .ems-desc,
+  .ems-desc2 {
+    font-size: 18px;
+    max-width: 520px;
+    margin-bottom: 40px;
+    margin-left: 0 !important;
+  }
+
+  .feature-box { padding: 12px 60px; }
+  .feature-box2 { padding: 12px 90px; }
+
+  .learn-btn, .learn-btn2 {
+    margin-left: 0;
+    display: inline-block;
+  }
+
+  .image-frame img,
+  .image-box img {
+    width: 320px !important;
+    height: auto !important;
+  }
+
+  .feature-wrapper { margin-left: 0 !important; }
+}
+
+/* Mobile: widths <= 768px */
+@media (max-width: 768px) {
+  .ems-section {
+    padding: 22px 12px;
+  
+  }
+
+  .ems-container {
+    flex-direction: column;
+    gap: 14px;
+    padding: 0 10px;
+    align-items: stretch;
+  }
+
+  .ems-left {
+    width: 100%;
+    order: 1;
+    text-align: center;
+    padding: 0 6px;
+    margin-bottom: 6px;
+  }
+
+  .image-box,
+  .image-frame {
+    order: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+
+  /* extra vertical spacing when image is moved into left column */
+  .ems-left .image-box {
+    margin: 10px 0 14px; /* gap between description and image */
+  }
+
+  .ems-left .feature-wrapper {
+    margin-top: 12px; /* gap between image and features */
+  }
+
+  .ems-title,
+  .ems-title2 {
+    font-size: 26px;
+    margin-left: 0;
+    margin-bottom: 8px;
+    line-height: 1.15;
+  }
+
+  .ems-desc,
+  .ems-desc2 {
+    font-size: 15px;
+    max-width: 100%;
+    margin: 0 auto 44px;
+    padding: 0 6px;
+    color: #d0d0d0;
+  }
+
+  .feature-box,
+  .feature-box2 {
+    padding: 8px 18px;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  .feature-wrapper { margin-left: 0 !important; margin-bottom: 8px; }
+
+  .learn-btn, .learn-btn2 {
+    margin: 10px auto 0;
+    display: inline-block;
+    padding: 12px 28px;
+  }
+
+  .image-frame img,
+  .image-box img {
+    width: 240px !important;
+    height: auto !important;
+  }
+
+  /* fix long lists spacing */
+  .feature-list,
+  .feature-list2 {
+    margin-left: 0;
+    padding-left: 18px;
+    text-align: left;
+  }
+}
+/* Prevent horizontal overflow and ensure images scale */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Make any remaining images responsive on this page */
+.ems-section img,
+.image-box img,
+.image-frame img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Neutralize any inline negative offsets on very small screens */
+@media (max-width: 480px) {
+  .feature-wrapper { margin-left: 0 !important; }
+  .title-wrapper::after { right: -8px; }
+  .navbar { padding-left: 12px; padding-right: 12px; }
+}
+    </style>
+</head>
+<body>
+     <div id="navbar-placeholder"></div>
+
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+  <div class="hero-blur-box">
+    <h1>
+      
+TASK<br>
+      <span>TRAINER CATALOG</span>
+    </h1>
+  </div>
+</div>
+
+
+    <!-- CHAT BUTTON -->
+    <button class="chat-btn">💬 Chat With Us!</button>
+  </section>
+
+
+
+
+
+  <section class="task-section">
+  <div class="title-wrapper">
+    <h1 class="title-box">TASK TRAINERS</h1>
+  </div>
+
+  <p class="description">
+    Our Task Trainers are expertly designed to support the instruction and practice of a wide range of medical procedures,
+    including intraosseous insertions, hemorrhage control, airway management, and catheterization. Each model provides a
+    realistic, hands-on training experience, making them an essential tool for mastering complex techniques and simulating
+    real-life patient scenarios.
+  </p>
+</section>
+<section class="ems-section">
+  <div class="ems-container">
+
+    <!-- LEFT CONTENT -->
+    <div class="ems-left">
+      <h1 class="ems-title">EMS TORSO TRAINER</h1>
+
+      <p class="ems-desc">
+        The EMS Torso Trainer provides high-fidelity, anatomically accurate
+        simulation for airway management, needle decompression, chest seal
+        application, ECG placement, and more, helping EMS professionals and
+        trainees build competence and confidence.
+      </p>
+
+      <!-- Feature Box -->
+      <div class="feature-wrapper" style="margin-left: -80px;">
+        <div class="feature-box">Features and Benefits</div>
+      </div>
+
+      <ul class="feature-list">
+        <li>Needle decompression, 2nd ICS.</li>
+        <li>Chest drain, 5th ICS.</li>
+        <li>IO access at humerus.</li>
+        <li>Airway intubation, ventilation capable.</li>
+        <li>Moulage not included, surgical ready.</li>
+      </ul>
+
+      <a href="#" class="learn-btn">Learn more ›</a>
+    </div>
+
+     <!-- LEFT IMAGE BOX -->
+   <div class="image-box">
+  <span class="right-border"></span>
+  <img 
+    src="/static_files/images/task_trainer.png" 
+    alt="Advanced Manikin Woman"
+    style="width: 350px; height: 500px;"
+  >
+</div>
+</section>
+
+
+
+<section class="ems-section reverse">
+  <div class="ems-container">
+
+    <!-- LEFT CONTENT -->
+    <div class="ems-left">
+      <h1 class="ems-title2">MAJOR LEG TRAUMA TRAINER</h1>
+
+      <p class="ems-desc2">
+        The EMS Torso Trainer provides high-fidelity, anatomically accurate
+        simulation for airway management, needle decompression, chest seal
+        application, ECG placement, and more, helping EMS professionals and
+        trainees build competence and confidence.
+      </p>
+
+      <div class="feature-wrapper" style="margin-left: -80px;">
+        <div class="feature-box2">Features and Benefits</div>
+      </div>
+
+      <ul class="feature-list2">
+        <li>Anatomically accurate leg trauma model.</li>
+        <li>Built-in bleeding for feedback.</li>
+        <li>Durable, reusable, easy cleaning..</li>
+        <li>Compatible with commercial tourniquets.</li>
+        <li>Portable, lightweight training solution.</li>
+      </ul>
+
+      <a href="#" class="learn-btn2">Learn more ›</a>
+    </div>
+
+    <!-- IMAGE -->
+    <div class="image-box">
+      <span class="right-border"></span>
+       <img src="/static_files/images/Major Leg Trauma Trainer_edited.png"
+         alt="Major Leg Trauma Trainer"
+         style="width: 350px; height: 500px;">
+    </div>
+
+  </div>
+</section>
+
+<!--3 and 4 section-->
+<section class="ems-section">
+  <div class="ems-container">
+
+    <!-- LEFT CONTENT -->
+    <div class="ems-left">
+      <h1 class="ems-title">SHOULDER PACKING WOUND</h1>
+
+      <p class="ems-desc">
+        The EMS Torso Trainer provides high-fidelity, anatomically accurate
+        simulation for airway management, needle decompression, chest seal
+        application, ECG placement, and more, helping EMS professionals and
+        trainees build competence and confidence.
+      </p>
+
+      <!-- Feature Box -->
+      <div class="feature-wrapper" style="margin-left: -80px;">
+        <div class="feature-box">Features and Benefits</div>
+      </div>
+
+      <ul class="feature-list">
+        <li>Realistic bleeding and tissue resistance.</li>
+        <li>Practice gauze packing techniques effectively.</li>
+        <li>Apply direct pressure and dressings.</li>
+        <li>Durable, reusable, high-quality materials.</li>
+        <li>Easy setup for any training.</li>
+      </ul>
+
+      <a href="#" class="learn-btn">Learn more ›</a>
+    </div>
+
+     <!-- LEFT IMAGE BOX -->
+   <div class="image-box">
+  <span class="right-border"></span>
+  <img 
+    src="/static_files/images/Shuolder Packing Wound_edited.png" 
+    alt="Shoulder Packing Wound"
+    style="width: 350px; height: 500px;"
+  >
+</div>
+</section>
+
+
+
+<section class="ems-section reverse">
+  <div class="ems-container">
+
+    <!-- LEFT CONTENT -->
+    <div class="ems-left">
+      <h1 class="ems-title2">THIGH PACKING WOUND</h1>
+
+      <p class="ems-desc2">
+        The Thigh Wound Packing Trainer simulates deep, bleeding thigh injuries with realistic cavities, gunshot wounds, and bone. It provides hands-on practice, enhancing technique, confidence, and readiness for real-world trauma interventions.
+      </p>
+
+      <div class="feature-wrapper" style="margin-left: -80px;">
+        <div class="feature-box2">Features and Benefits</div>
+      </div>
+
+      <ul class="feature-list2">
+        <li>Realistic wound cavity, simulated bleeding.</li>
+        <li>Supports gauze packing, pressure, dressing.</li>
+        <li>Durable, skin-like reusable material.</li>
+        <li>Easy setup, clean, reset.
+
+</li>
+        <li>Compatible with all training environments.</li>
+      </ul>
+
+      <a href="#" class="learn-btn2">Learn more ›</a>
+    </div>
+
+    <!-- IMAGE -->
+    <div class="image-box">
+      <span class="right-border"></span>
+       <img src="/static_files/images/task_trainer.png"
+         alt="Task Trainer"
+         style="width: 350px; height: 500px;">
+    </div>
+
+  </div>
+</section>
+<div id="footer-placeholder"></div>
+
+  <script>
+  fetch("../navbar.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Navbar file not found");
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById("navbar-placeholder").innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Error loading navbar:", error);
+    });
+</script>
+<script>
+  fetch("../footer.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Footer file not found");
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Error loading footer:", error);
+    });
+</script>
+<script>
+// Responsive DOM reorder: insert .image-box after description inside .ems-left on small screens
+function reorderEmsImages() {
+  const isMobile = window.innerWidth <= 768;
+  document.querySelectorAll('.ems-container').forEach(container => {
+    const left = container.querySelector('.ems-left');
+    const imageBox = container.querySelector('.image-box');
+    if (!left || !imageBox) return;
+
+    if (isMobile) {
+      // find description inside left (.ems-desc or .ems-desc2)
+      const desc = left.querySelector('.ems-desc, .ems-desc2');
+      if (desc && imageBox.parentElement !== left) {
+        // move imageBox into left after description
+        left.insertBefore(imageBox, desc.nextSibling);
+      }
+    } else {
+      // move imageBox back to be sibling after left (if currently inside left)
+      if (imageBox.parentElement === left) {
+        container.appendChild(imageBox);
+      }
+    }
+  });
+}
+
+// Run on load and resize (debounced)
+let _reorderTimer;
+window.addEventListener('DOMContentLoaded', reorderEmsImages);
+window.addEventListener('resize', () => {
+  clearTimeout(_reorderTimer);
+  _reorderTimer = setTimeout(reorderEmsImages, 120);
+});
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,291 @@
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- LOGO + LINKS -->
+    <div class="footer-col footer-brand">
+      <img src="/static_files/images/MedTech_Square_Logo_HD-Square.png" alt="MedTech Logo" class="footer-logo">
+
+      <div class="footer-links">
+        <div>
+          <a href="#">Home</a>
+          <a href="#">Manikin catalog</a>
+          <a href="#">Task Trainers</a>
+        </div>
+
+        <div>
+          <a href="#">Comparison Chart</a>
+          <a href="#">About us</a>
+          <a href="#">Contact us</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOLLOW US -->
+    <div class="footer-col follow-us">
+      <h4>FOLLOW US</h4>
+      <a href="#">X.com</a>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">Pinterest</a>
+    </div>
+
+    <!-- NEWSLETTER -->
+    <div class="footer-col footer-newsletter">
+      <h4>JOIN OUR NEWSLETTER</h4>
+      <div class="footer-line"></div>
+
+      <label class="checkbox-label">
+        <input type="checkbox">
+        Yes, subscribe me to your newsletter *
+      </label>
+
+      <button class="newsletter-btn">Submit</button>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 by Medtech
+  </div>
+</footer>
+
+<style>
+/* ===== FOOTER ===== */
+.site-footer {
+  background: linear-gradient(180deg, #1b1b1b, #101010);
+  color: #ffffff;
+  text-align: center;
+  padding: 80px 20px 40px;
+}
+
+/* FOOTER CONTAINER */
+.footer-container {
+  max-width: 1400px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-items: center;
+  align-items: start;
+}
+
+/* COMMON COLUMN */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* BRAND */
+.footer-logo {
+  width: 100px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+/* MAIN LINKS */
+.footer-links {
+  display: flex;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.footer-links div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-links a,
+.footer-col a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  margin-bottom: 14px;
+}
+
+.footer-links a:hover,
+.footer-col a:hover {
+  text-decoration: underline;
+}
+
+/* HEADINGS */
+.footer-col h4 {
+  font-size: 18px;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+/* ===== FOLLOW US - TWO LINES ===== */
+.footer-col.follow-us {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px 40px; /* vertical gap 15px, horizontal gap 40px */
+}
+
+.footer-col.follow-us a {
+  display: inline-block;
+  margin-bottom: 0; /* remove extra spacing */
+}
+
+/* NEWSLETTER */
+.footer-newsletter {
+  max-width: 320px;
+  width: 100%;
+}
+
+.footer-line {
+  height: 1px;
+  background: #ffffff;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+/* CHECKBOX */
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+/* BUTTON */
+.newsletter-btn {
+  width: 100%;
+  padding: 14px 0;
+  background: transparent;
+  border: 2px solid #1f2bff;
+  color: #1f2bff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.newsletter-btn:hover {
+  background: #1f2bff;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* FOOTER BOTTOM */
+.footer-bottom {
+  margin-top: 60px;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* TABLET: two-column layout */
+@media (max-width: 1199px) and (min-width: 769px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    justify-items: start;
+  }
+
+  .footer-col {
+    align-items: flex-start;
+  }
+
+  .footer-links {
+    gap: 40px;
+  }
+}
+
+/* MOBILE: single-column, centered stacked layout with improved touch targets */
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 40px 16px 30px;
+    text-align: center;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    justify-items: center;
+  }
+
+  .footer-col {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-logo {
+    width: 160px;
+    margin-bottom: -2px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .footer-links div {
+    align-items: center;
+  }
+
+  .footer-links a,
+  .footer-col a {
+    font-size: 22px;
+    margin: 8px 0;
+    padding: 8px 12px;
+    display: inline-block;
+    border-radius: 6px;
+  }
+
+  .footer-col.follow-us {
+    justify-content: center;
+    gap: 10px 20px;
+  }
+
+  .footer-newsletter {
+    max-width: 360px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .checkbox-label {
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .newsletter-btn {
+    padding: 14px 0;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .footer-col h4 {
+    font-size: 35px;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    margin-top: 28px;
+  }
+  /* white line above logo (mobile only) */
+  .footer-brand {
+    position: relative;
+    padding-top: 18px;
+  }
+
+  .footer-brand::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 530px;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 2px;
+    opacity: 1;
+  }
+}
+</style>

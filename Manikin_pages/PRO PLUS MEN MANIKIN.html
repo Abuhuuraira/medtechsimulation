@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> PRO PLUS
+MANIKIN MAN</title>
+<link rel="stylesheet" href="/css/manikin_golobal.css " >
+</head>
+
+<body>
+
+     <div id="navbar-placeholder"></div>
+
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+  <div class="hero-blur-box">
+    <h1>
+   PRO PLUS
+MANIKIN MAN DETAIL
+      <span></span>
+    </h1>
+  </div>
+</div>
+  <!-- CHAT BUTTON -->
+    <button class="chat-btn">💬 Chat With Us!</button>
+  </section>
+
+  <script>
+  fetch("../navbar.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Navbar file not found");
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById("navbar-placeholder").innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Error loading navbar:", error);
+    });
+</script>
+
+<section class="manikin-section">
+  <div class="manikin-container">
+
+    <!-- LEFT IMAGE BOX -->
+    <div class="image-box">
+         <span class="right-border"></span>
+      <img src="/static_files/images/Pro_&_Plus Men.png" alt="Advanced Manikin Wome">
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="content-box">
+    <h2 class="title" >PRO PLUS MANIKIN MAN
+</h2>
+      <div class="desc-label">  <span></span>
+        Description</div>
+
+      <p class="description">
+      The Man Pro Plus Manikin line is designed for professional level training. The Pro-Plus Manikins include all features and capabilities of Pro Manikins, with the addition of an Ultimate SIM-Sleeve Kit and an Instant Moulage Kit.
+Built to perform in demanding field environments, from the beach to the Arctic, these manikins are engineered to withstand the toughest training conditions.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+
+<div class="manikin-wrapper-title ">
+    <div class="manikin-wrapper-title-lable">
+ <h2>
+MANIKIN DETAIL</h2>
+    </div>
+   
+</div>
+
+<div class="manikin-wrapper">
+
+    <!-- LEFT MENU -->
+    <div class="manikin-tabs">
+        <button class="manikin-tab active" onclick="openTab(event,'features')">Features <span>➜</span></button>
+        <button class="manikin-tab" onclick="openTab(event,'circulation')">Circulation <span>➜</span></button>
+        <button class="manikin-tab" onclick="openTab(event,'airway')">Airway Management <span>➜</span></button>
+        <button class="manikin-tab" onclick="openTab(event,'hemorrhage')">Hemorrhage Control <span>➜</span></button>
+        <button class="manikin-tab" onclick="openTab(event,'respiration')">Respiration <span>➜</span></button>
+        <button class="manikin-tab" onclick="openTab(event,'head')">Head & Hypothermia <span>➜</span></button>
+        <button class="manikin-tab" onclick="openTab(event,'burns')">Burn Management <span>➜</span></button>
+        <button class="manikin-tab" onclick="openTab(event,'included')">What's Included <span>➜</span></button>
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="manikin-content">
+
+        <!-- FEATURES -->
+        <div id="features" class="manikin-panel active">
+            <ul>
+                <li>Anatomically-correct, cadaver-casted, surgical-capable airway</li>
+                <li>Reinforced procedural areas for increased durability</li>
+                <li>Downside, upper & lower extremity wounds</li>
+                <li>IO-capable humeral head, tibia & sternum</li>
+                <li>2nd and 5th ICS needle decompression site</li>
+                <li>Posterior wound</li>
+                <li>Two removable amputations with sleeve</li>
+                <li>Urinary catheterization</li>
+                <li>Intubation-capable mouth and jaw</li>
+                <li>Ventilation-capable lungs</li>
+                <li>Supports chest compressions</li>
+                <li>Needle decompression site: 2nd intercostal space</li>
+                <li>Intraosseous access capability</li>
+                <li>Anatomically correct airway</li>
+                <li>Palpable anatomical landmarks</li>
+                <li>Splashproof and washable skin</li>
+                <li>Realistic look and feel with flexible limbs</li>
+                <li>Manual eyelid movement</li>
+            </ul>
+        </div>
+
+        <!-- CIRCULATION -->
+        <div id="circulation" class="manikin-panel">
+            <ul>
+                <li>Urinary Catheterization</li>
+                <li>Intraosseous Access - Tibia and Humeral Head (bilateral; provides flash)</li>
+                <li>Intraosseous Access - Sternum</li>
+                <li>Chest Compressions - Manual</li>
+                <li>Chest Compressions - Automated</li>
+                <li>Application of AED / Defibrillator Pads</li>
+            </ul>
+        </div>
+
+        <!-- AIRWAY -->
+        <div id="airway" class="manikin-panel">
+            <ul>
+                <li>Airway Examination</li>
+                <li>Head-tilt / Chin-lift / Jaw-thrust</li>
+                <li>Airway Suction</li>
+                <li>Postural Airway Management</li>
+                <li>Nasopharyngeal / Oropharyngeal / Supraglottic Airway Insertion</li>
+                <li>Surgical Cricothyroidotomy</li>
+                <li>Maxillo-facial / Nasal Packing</li>
+                <li>Percutaneous Needle Cricothyrotomy</li>
+                <li>Laryngoscopy / Tracheal Intubation</li>
+            </ul>
+        </div>
+
+        <!-- HEMORRHAGE -->
+        <div id="hemorrhage" class="manikin-panel">
+            <ul>
+                <li>Catastrophic / Life-Threatening Hemorrhage Control</li>
+                <li>Tourniquet Application</li>
+                <li>Wound Packing</li>
+                <li>Junctional Tourniquet Application</li>
+                <li>Hemostatic Dressing Application</li>
+            </ul>
+        </div>
+
+        <!-- RESPIRATION -->
+        <div id="respiration" class="manikin-panel">
+            <ul>
+                <li>Artificial Ventilation - BVM</li>
+                <li>Artificial Ventilation - Intubated</li>
+                <li>Chest Seal Application</li>
+                <li>Finger Thoracostomy Site</li>
+                <li>Chest Examination</li>
+                <li>Needle Chest Decompression</li>
+            </ul>
+        </div>
+
+        <!-- HEAD & HYPOTHERMIA -->
+        <div id="head" class="manikin-panel">
+            <ul>
+                <li>Spinal Collar Application</li>
+                <li>Manual Inline Stabilization</li>
+                <li>Thermal Blanket Application</li>
+                <li>Scalp Laceration Treatment</li>
+                <li>Open Head Wound Management</li>
+            </ul>
+        </div>
+
+        <!-- BURN MANAGEMENT -->
+        <div id="burns" class="manikin-panel">
+            <ul>
+                <li>Burn Dressing Application</li>
+                <li>Water-Jel Dressing Application</li>
+                <li>Burn Towel & Sheet Application</li>
+                <li>Antibacterial / Antimicrobial Dressing Application</li>
+                <li>Silicone-Coated Synthetic Mesh Dressing</li>
+            </ul>
+        </div>
+
+        <!-- INCLUDED -->
+        <div id="included" class="manikin-panel">
+            <ul>
+                <li>1. Pro & Plus Manikin</li>
+                <li>2. IV Cannulation Sleeves</li>
+                <li>3. Skin Repair Kit</li>
+                <li>4. Surgical Airway Kit</li>
+                <li>5. Ultimate SIM-Sleeve Kit</li>
+                <li>6. Instant Moulage Kit</li>
+                <li>7. 2x Blood Pumps</li>
+                <li>8. 4x Amputations and 2x Cover Sleeves</li>
+                <li>9. Maintenance Kit (Setting Powder, Powder Brush, 100ml Sweat & Tears, Bluetooth Speaker USB Cable, Hairbrush)</li>
+                <li>10. 24x IO Patches</li>
+                <li>11. Adult Soft Foam Case</li>
+                <li>12. Underwear</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="manikin-wrapper-title2 ">
+    <div class="manikin-wrapper-title-lable2">
+ <h2>
+Manikin Specifications</h2>
+    </div>
+<table class="spec-table">
+  <tr>
+    <th colspan="2">Man</th>
+  </tr>
+
+  <tr>
+    <td class="label">Age</td>
+    <td class="value">20–30 Y/O</td>
+  </tr>
+
+  <tr>
+    <td class="label">Height</td>
+    <td class="value">6’0”</td>
+  </tr>
+
+  <tr>
+    <td class="label">Weight</td>
+    <td class="value">70 lbs</td>
+  </tr>
+
+  <tr>
+    <td class="label">Clothing</td>
+    <td class="value">Men’s MD / LG</td>
+  </tr>
+
+  <tr>
+    <td class="label">Shoe Size</td>
+    <td class="value">US Men’s 11</td>
+  </tr>
+</table>
+</div>
+
+<div id="footer-placeholder"></div>
+
+<script>
+function openTab(event, tabId) {
+    const tab = event.currentTarget;
+    const panel = document.getElementById(tabId);
+
+    if (window.innerWidth > 768) {
+        // Desktop: normal tab behavior
+        document.querySelectorAll('.manikin-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.manikin-tab').forEach(t => t.classList.remove('active'));
+
+        tab.classList.add('active');
+        panel.classList.add('active');
+    } else {
+        // Mobile accordion: toggle clicked tab
+        const isActive = panel.classList.contains('active');
+
+        // Close all panels
+        document.querySelectorAll('.manikin-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.manikin-tab').forEach(t => t.classList.remove('active'));
+
+        // Only open if it was not already active
+        if (!isActive) {
+            tab.classList.add('active');
+            panel.classList.add('active');
+        }
+    }
+}
+
+</script>
+
+<script>
+  fetch("../footer.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Footer file not found");
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Error loading footer:", error);
+    });
+</script>
+
+</body>
+
+</html>
+

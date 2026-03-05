@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> ADVANCED CHILD
+5 YEAR OLD</title>
+<link rel="stylesheet" href="/css/manikin_golobal.css " >
+</head>
+
+<body>
+
+     <div id="navbar-placeholder"></div>
+
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+  <div class="hero-blur-box">
+    <h1>
+ ​EMS TORSO
+TRAINER DETAIL
+      <span></span>
+    </h1>
+  </div>
+</div>
+  <!-- CHAT BUTTON -->
+    <button class="chat-btn">💬 Chat With Us!</button>
+  </section>
+
+  <script>
+  fetch("../navbar.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Navbar file not found");
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById("navbar-placeholder").innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Error loading navbar:", error);
+    });
+</script>
+
+<section class="manikin-section">
+  <div class="manikin-container">
+
+    <!-- LEFT IMAGE BOX -->
+    <div class="image-box">
+         <span class="right-border"></span>
+      <img src="/static_files/images/task_trainer.png" alt="Advanced Manikin Wome">
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="content-box">
+    <h2 class="title" >EMS TORSO TRAINER
+</h2>
+      <div class="desc-label">  <span></span>
+        Description</div>
+
+      <p class="description">
+     The EMS Torso Trainer is a versatile simulation tool designed to support a wide range of life-saving medical procedures in a single, compact, anatomically accurate model.
+<br>
+Built for EMS professionals, educators, and trainees, it delivers high-fidelity realism for skill development in both classroom and field settings.
+<br>
+Crafted from lifelike materials with detailed anatomical landmarks, the torso allows practice of airway management, needle decompression, chest seal application, ECG lead placement, and more. This trainer helps users build competence and confidence in critical interventions.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+
+<div class="manikin-wrapper-title ">
+    <div class="manikin-wrapper-title-lable">
+ <h2>
+MANIKIN DETAIL</h2>
+    </div>
+   
+</div>
+
+<div class="manikin-wrapper">
+
+    <!-- LEFT MENU -->
+    <div class="manikin-tabs">
+        <button class="manikin-tab active" onclick="openTab(event,'features')">
+            Features <span>➜</span>
+        </button>
+       
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="manikin-content">
+
+        <!-- FEATURES -->
+        <div id="features" class="manikin-panel active">
+            <ul>
+        <li>Needle decompression at 2nd intercostal space, midclavicular line (anterior)</li>
+        <li>Chest drain placement at 5th intercostal space, anterior axillary line</li>
+        <li>Intraosseous (IO) infusion capability at the humeral head</li>
+        <li>Airway capable of intubation and ventilation</li>
+        <li>Nasal passages compatible with nasopharyngeal airway</li>
+        <li>Surgical airway capability</li>
+        <li>Moulage not included</li>
+    </ul>
+        </div>
+
+        <!-- BURN MANAGEMENT -->
+        <div id="burn" class="manikin-panel">
+            <ul>
+                <li>Burn Dressing Application</li>
+                <li>Water-Jel Dressing Application</li>
+                <li>Burn Towel & Sheet Application</li>
+                <li>Antibacterial / Antimicrobial Dressing Application</li>
+                <li>Silicone-Coated Synthetic Mesh Dressing</li>
+            </ul>
+        </div>
+
+        <!-- INCLUDED -->
+        <div id="included" class="manikin-panel">
+            <ul>
+                <li>Bluetooth Speakers</li>
+                <li>Body Bag</li>
+                <li>Underwear</li>
+                <li>
+                    Maintenance Kit:
+                    <ul>
+                        <li>Setting Powder</li>
+                        <li>Powder Brush</li>
+                        <li>100ml Sweat & Tears</li>
+                        <li>Bluetooth Speaker USB Cable</li>
+                        <li>Hairbrush</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<div id="footer-placeholder"></div>
+
+<script>
+function openTab(event, tabId) {
+    const tab = event.currentTarget;
+    const panel = document.getElementById(tabId);
+
+    if (window.innerWidth > 768) {
+        // Desktop: normal tab behavior
+        document.querySelectorAll('.manikin-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.manikin-tab').forEach(t => t.classList.remove('active'));
+
+        tab.classList.add('active');
+        panel.classList.add('active');
+    } else {
+        // Mobile accordion: toggle clicked tab
+        const isActive = panel.classList.contains('active');
+
+        // Close all panels
+        document.querySelectorAll('.manikin-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.manikin-tab').forEach(t => t.classList.remove('active'));
+
+        // Only open if it was not already active
+        if (!isActive) {
+            tab.classList.add('active');
+            panel.classList.add('active');
+        }
+    }
+}
+
+</script>
+
+<script>
+  fetch("../footer.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Footer file not found");
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Error loading footer:", error);
+    });
+</script>
+
+</body>
+
+</html>
+

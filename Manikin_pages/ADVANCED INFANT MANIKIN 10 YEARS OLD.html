@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ADVANCED INFANT
+10 MONTH OLD </title>
+<link rel="stylesheet" href="/css/manikin_golobal.css " >
+</head>
+
+<body>
+
+     <div id="navbar-placeholder"></div>
+
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+  <div class="hero-blur-box">
+    <h1>
+ ADVANCED INFANT
+10 MONTH OLD DETAIL
+      <span></span>
+    </h1>
+  </div>
+</div>
+  <!-- CHAT BUTTON -->
+    <button class="chat-btn">💬 Chat With Us!</button>
+  </section>
+
+  <script>
+  fetch("../navbar.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Navbar file not found");
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById("navbar-placeholder").innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Error loading navbar:", error);
+    });
+</script>
+
+<section class="manikin-section">
+  <div class="manikin-container">
+
+    <!-- LEFT IMAGE BOX -->
+    <div class="image-box">
+         <span class="right-border"></span>
+      <img src="/static_files/images/sb-adv-infant-dark-top_edited_edited_edited_edited.png" alt="Advanced Manikin Wome">
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="content-box">
+    <h2 class="title"style="margin-top:-97px;">
+​ADVANCED INFANT 
+10 Months Old
+</h2>
+      <div class="desc-label">  <span></span>
+        Description</div>
+
+      <p class="description">
+      SIMBODIES Advanced Infant Manikins are life-like pediatric patient simulators, frequently used by medical educators and clinicians for training purposes. 
+<br>
+These manikins replicate the look and appearance of male or female infant patients, approx. 10 months old, & are made from skin-safe, prosthetic-grade platinum silicone.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+
+<div class="manikin-wrapper-title ">
+    <div class="manikin-wrapper-title-lable">
+ <h2>
+MANIKIN DETAIL</h2>
+    </div>
+   
+</div>
+
+<div class="manikin-wrapper">
+
+    <!-- LEFT MENU -->
+    <div class="manikin-tabs">
+        <button class="manikin-tab active" onclick="openTab(event,'features')">
+            Features <span>➜</span>
+        </button>
+        <button class="manikin-tab" onclick="openTab(event,'included')">
+            What's Included <span>➜</span>
+        </button>
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="manikin-content">
+
+        <!-- FEATURES -->
+        <div id="features" class="manikin-panel active">
+            <ul>
+                <li>Intubation-capable mouth and jaw</li>
+                <li>Supports chest compressions</li>
+                <li>Needle decompression site: 2nd intercostal space, midclavicular line (anterior)</li>
+                <li>Intraosseous (IO) access capability at both tibia and femur</li>
+                <li>Partially open eyes with manual eyelid movement</li>
+                <li>Splashproof and washable skin</li>
+                <li>Available with male or female genitalia</li>
+                <li>Hand-punched hair for added realism</li>
+                <li>Integrated Bluetooth speakers for enhanced training scenarios</li>
+                <li>Age: 10 months old</li>
+                <li>Clothing size: 9–12 months</li>
+            </ul>
+        </div>
+
+        <!-- INCLUDED -->
+        <div id="included" class="manikin-panel">
+            <ul>
+                <li>Baby Grow</li>
+                <li>Maintenance Kit: Setting Powder, Powder Brush, 100ml Sweat & Tears, Bluetooth Speaker USB Cable, Hairbrush</li>
+                <li>Includes a Wheeled Case</li>
+                <li>Bluetooth® Speaker</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+
+<div id="footer-placeholder"></div>
+
+<script>
+function openTab(event, tabId) {
+    const tab = event.currentTarget;
+    const panel = document.getElementById(tabId);
+
+    if (window.innerWidth > 768) {
+        // Desktop: normal tab behavior
+        document.querySelectorAll('.manikin-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.manikin-tab').forEach(t => t.classList.remove('active'));
+
+        tab.classList.add('active');
+        panel.classList.add('active');
+    } else {
+        // Mobile accordion: toggle clicked tab
+        const isActive = panel.classList.contains('active');
+
+        // Close all panels
+        document.querySelectorAll('.manikin-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.manikin-tab').forEach(t => t.classList.remove('active'));
+
+        // Only open if it was not already active
+        if (!isActive) {
+            tab.classList.add('active');
+            panel.classList.add('active');
+        }
+    }
+}
+
+</script>
+
+<script>
+  fetch("../footer.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Footer file not found");
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Error loading footer:", error);
+    });
+</script>
+
+</body>
+
+</html>
+

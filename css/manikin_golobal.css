@@ -1,0 +1,628 @@
+        /* HERO */
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url("/static_files/images/banner_image.jpeg") center / cover no-repeat;
+  display: flex;
+  align-items: flex-start;     /* aligns vertically to top */
+  justify-content: flex-start; /* aligns content to left */
+  padding-left: 60px;          /* distance from left edge */
+  padding-top: 60px;           /* distance from top */
+}
+
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-content {
+  position: relative;
+  max-width: 600px;
+}
+.hero-blur-box {
+  padding: 50px 40px;               /* more padding = taller box */
+  background: rgba(0, 0, 0, 0.15);  /* dark glass effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(8px); /* Safari support */
+  border-radius: 6px;
+  display: block;                    /* allows width/height to work */
+  width: 800px;                      /* width of the blur box */
+  min-height: 200px;                 /* increased height */
+  text-align: left;                  /* content aligned left */
+  margin: 150px 0 0 -60px;          /* space from top, left edge of container */
+}
+
+
+.hero-content h1 {
+  color: #fff;
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+}
+.hero-blur-box {
+  padding: 30px 50px;
+  min-width: 520px;
+}
+
+.hero-content h1 {
+  color: #fff;
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.hero-content span {
+  display: inline-block;
+  margin-top: 10px;
+}
+/* CHAT BUTTON */
+.chat-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #1e1e1e;
+  color: #fff;
+  border: none;
+  padding: 14px 22px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  z-index: 99;
+}
+
+/* ===== HERO: Responsive adjustments (tablet + mobile) ===== */
+/* Tablet: widths <= 1199px */
+@media (max-width: 1199px) {
+  .hero {
+    height: 75vh;
+    padding-left: 40px;
+    padding-top: 40px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-position: center top;
+  }
+
+  .hero-overlay {
+    background: rgba(0,0,0,0.5);
+  }
+
+  .hero-content {
+    max-width: 520px;
+  }
+
+  .hero-blur-box {
+    width: calc(100% - 80px);
+    max-width: 640px;
+    padding: 36px 30px;
+    min-height: 180px;
+    margin: 100px 0 0 0;
+    text-align: left;
+    border-radius: 8px;
+    backdrop-filter: blur(8px);
+  }
+
+  .hero-content h1 {
+    font-size: 30px;
+    line-height: 1.15;
+  }
+
+  .hero-content span {
+    font-size: 30px;
+  }
+
+  .chat-btn {
+    bottom: 26px;
+    right: 22px;
+    padding: 12px 18px;
+    font-size: 13px;
+  }
+}
+
+/* Mobile: widths <= 768px (centered stacked hero content) */
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+    min-height: 56vh;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center center;
+  }
+
+  .hero-overlay {
+    background: rgba(0,0,0,0.55);
+  }
+
+  .hero-content {
+    max-width: 92%;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-blur-box {
+    width: 100%;
+    max-width: 520px;
+    padding: 20px 18px;
+    min-height: auto;
+    margin: 0;
+    margin-left: -96px;
+    text-align: center;
+    border-radius: 10px;
+    backdrop-filter: blur(6px);
+  }
+
+  .hero-content h1 {
+    font-size: 30px;
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+
+  .hero-content span {
+    display: block;
+    font-size: 30px;
+    margin-top: 8px;
+  }
+
+  .chat-btn {
+    bottom: 18px;
+    right: 16px;
+    padding: 12px 16px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+}
+
+  /* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* PAGE BACKGROUND */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background:#1c2e66
+}
+
+/* SECTION */
+.manikin-section {
+  padding: 40px;
+}
+
+/* MAIN CONTAINER */
+.manikin-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background:#001248;
+  padding: 30px;
+  position: relative;
+}
+
+/* IMAGE BOX */
+.image-box {
+  position: relative;
+  display: inline-block;   /* IMPORTANT */
+  background:url(/static_files/images/background_glass.jpg);
+  padding: -2px;
+  z-index: 1;   /* NEW */
+}
+
+.image-box::after {
+  content: "";
+  position: absolute;
+  top: -16px;          /* shift down a bit */
+  right: 9px;      /* push to the right */
+  width: 100%;
+  height: 100%;
+    /* ONLY top & left border */
+  border-top: 4px solid red;
+  border-left: 4px solid red;
+
+  z-index:-2;        /* behind */
+}
+
+/* PARTIAL bottom border */
+.image-box::before {
+  content: "";
+  position: absolute;
+  bottom: 10px;        /* distance from image */
+  left: -12px;          /* start position */
+  width: 12px;         /* LENGTH of bottom border */
+  height: 4px;
+  background: red;
+
+  z-index: -2;
+}
+/* PARTIAL right border */
+.image-box .right-border {
+  position: absolute;
+  right:9px; /* distance from image */
+  top:-16px;
+  width: 4px;        /* thickness */
+  height: 16px;   /* length */
+  background: red;
+  z-index: -2;
+}
+
+
+
+.image-box img {
+  width: 450px;
+  display: block;
+  position: relative;
+  z-index: 2;   /* BETWEEN before & after */
+}
+/* CONTENT */
+.content-box {
+  color: white;
+  max-width: 500px;
+}
+
+/* TITLE */
+.title {
+  color: red;
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 150px;
+  margin-top: 30px;
+}
+
+
+
+.desc-label {
+  position: absolute;
+  display: inline-block;
+  background: white;
+  color: #0b1e5b;
+  padding: 14px 30px;
+  min-width: 350px;
+  font-size: 35px;
+  font-weight: bold;
+  top: 240px;
+  left: 500px;
+}
+
+/* LEFT partial border */
+.desc-label::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 10px;
+  width: 4px;
+  height: 18px;
+  background: red;
+}
+
+/* RIGHT partial border */
+.desc-label::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  bottom: 68px;
+  width: 4px;
+  height: 12px;
+  background: red;
+}
+
+/* TOP partial border */
+.desc-label span {
+  position: absolute;
+  top: -12px;      /* above label */
+  left:-14px;         /* start position */
+  width: 100%;      /* length of top line */
+  height: 4px;
+  background: red;
+}
+
+
+/* TEXT */
+.description {
+  font-size: 21px;
+  line-height: 1.4;
+  color: #dce6ff;
+}
+
+
+
+/* WRAPPER */
+.manikin-wrapper-title {
+    background-color: rgb(0, 18, 72);
+    height: 94px;
+    width: 372px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 11.5rem;
+    margin-top: 5.9rem;
+}
+
+.manikin-wrapper-title-lable{
+    color: rgb(255, 0, 0);
+    font-size: 25px;
+    
+}
+
+.manikin-wrapper-title2 {
+        background-color: rgb(0, 18, 72);
+    height: 30rem;
+    width: 79rem;
+    display: flex;
+    justify-content: center;
+    margin-left: 2.5rem;
+    margin-top: -9.1rem;
+   padding-top: 3rem;
+    display: flex;
+    flex-direction: column;      /* STACK title + table */
+    align-items: center;         /* center horizontally */
+margin-bottom: 3.5rem;
+    }
+
+.manikin-wrapper-title-lable2{
+    color: rgb(255, 0, 0);
+    font-size: 40px;
+    margin-bottom: 2.5rem;      /* space before table */
+}
+
+.manikin-wrapper {
+    display: flex;
+    gap: 40px;
+    padding: 227px;
+    background: transparent; /* optional page background */
+        margin-top: -11rem;
+}
+
+/* LEFT TABS */
+.manikin-tabs {
+    width: 280px;
+   
+}
+
+.manikin-tab {
+    width: 100%;
+    background: #001248;
+    border: 1px solid #2f4aa0;
+    color: #ffffff;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.manikin-tab:hover {
+    background: #002070;
+}
+
+.manikin-tab.active {
+    background: #ffffff;
+    color: #1b2f6b;
+    width: 280px;
+  height:44px; 
+}
+
+/* ARROW */
+.manikin-tab span {
+    display: none;
+    border: 2px solid #1b2f6b;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+}
+
+.manikin-tab.active span {
+    display: flex;
+}
+
+/* RIGHT CONTENT */
+.manikin-content {
+    flex: 1;
+    color: #e0e0e0;
+}
+
+.manikin-panel {
+    display: none;
+}
+
+.manikin-panel.active {
+    display: block;
+}
+
+.manikin-panel ul {
+    padding-left: 20px;
+}
+
+.manikin-panel li {
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 1.7;
+}
+  /* MOBILE ACCORDION */
+@media (max-width: 768px) {
+
+    .manikin-wrapper {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    /* Tabs become full-width cards */
+    .manikin-tab {
+        width: 100%;
+        background: #001248;
+        color: #ffffff;
+        margin-bottom: 4px;
+        text-align: left;
+        padding: 14px 16px;
+        border-radius: 8px;
+        border: 1px solid #2f4aa0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    /* Arrow */
+    .manikin-tab span {
+        display: inline-flex;
+        transition: transform 0.3s ease;
+    }
+
+    .manikin-tab.active span {
+        transform: rotate(90deg);
+    }
+
+    /* Panels hidden by default */
+    .manikin-panel {
+        display: none;
+        background: #f9f9f9;
+        color: #000;
+        padding: 12px 16px;
+        margin-bottom: 8px;
+        border-radius: 0 0 8px 8px;
+        border: 1px solid #ddd;
+        border-top: none;
+    }
+
+    .manikin-panel li {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 6px;
+    }
+
+    .manikin-content {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+/* Small phones adjustments */
+@media (max-width: 480px) {
+    .manikin-tab {
+        font-size: 15px;
+        padding: 12px 14px;
+    }
+
+    .manikin-panel li {
+        font-size: 15px;
+    }
+}
+/* TABLE */
+.spec-table {
+  width: 967px;
+  border-collapse: collapse;
+  border: 2px solid #000;
+  background: #ffffff;
+}
+
+/* HEADER */
+.spec-table th {
+  background: #ff0000;
+  color: #fff;
+  font-size: 22px;
+  padding: 10px;
+  border: 2px solid #000;
+  text-align: center;
+}
+
+/* CELLS */
+.spec-table td {
+  border: 2px solid #000;
+  padding: 8px 10px;
+  font-size: 15px;
+}
+
+/* LEFT LABEL */
+.label {
+  width: 30%;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* MIDDLE DIVIDER */
+.divider {
+  width: 40%;
+  position: relative;
+  text-align: center;
+}
+
+/* RIGHT VALUE */
+.value {
+  width: 30%;
+  text-align: center;
+  font-weight: bold;
+}
+/* =========================
+   MOBILE RESPONSIVE
+   ========================= */
+@media (max-width: 768px) {
+
+  body {
+    padding: 0px;
+    margin-right: -14px;
+  }
+
+  .spec-table {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  /* Header */
+  .spec-table th {
+    font-size: 18px;
+    padding: 8px;
+  }
+
+  /* Cells */
+  .spec-table td {
+    padding: 6px;
+    font-size: 14px;
+  }
+
+  /* Column widths */
+  .label,
+  .value {
+    width: 50%;
+  }
+}
+
+/* =========================
+   SMALL PHONES
+   ========================= */
+@media (max-width: 480px) {
+
+  .spec-table th {
+    font-size: 16px;
+  }
+
+  .spec-table td {
+    font-size: 13px;
+    padding: 5px;
+  }
+
+  .label {
+    font-size: 13px;
+  }
+
+  .value {
+    font-size: 13px;
+  }
+}
+

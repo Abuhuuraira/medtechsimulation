@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PRO ADULT
+MANIKIN MAN DETAIL</title>
+<link rel="stylesheet" href="/css/manikin_golobal.css " >
+</head>
+
+<body>
+
+     <div id="navbar-placeholder"></div>
+
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+  <div class="hero-blur-box">
+    <h1>
+   PRO ADULT
+MANIKIN MAN DETAIL
+      <span></span>
+    </h1>
+  </div>
+</div>
+  <!-- CHAT BUTTON -->
+    <button class="chat-btn">💬 Chat With Us!</button>
+  </section>
+
+  <script>
+  fetch("../navbar.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Navbar file not found");
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById("navbar-placeholder").innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Error loading navbar:", error);
+    });
+</script>
+
+<section class="manikin-section">
+  <div class="manikin-container">
+
+    <!-- LEFT IMAGE BOX -->
+    <div class="image-box">
+         <span class="right-border"></span>
+      <img src="/static_files/images/Pro_&_Plus Men.png" alt="Advanced Manikin Wome">
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="content-box">
+    <h2 class="title" >PRO ADULT MANIKIN MAN</h2>
+      <div class="desc-label">  <span></span>
+        Description</div>
+
+      <p class="description">
+      The Man Pro Manikin line is designed for professional level training, developed with input from the U.S. military to deliver unmatched realism and durability. Built to perform in demanding field environments, from the beach to the Arctic, these manikins are engineered to withstand the toughest training conditions.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+
+<div class="manikin-wrapper-title ">
+    <div class="manikin-wrapper-title-lable">
+ <h2>
+MANIKIN DETAIL</h2>
+    </div>
+   
+</div>
+
+<div class="manikin-wrapper">
+
+    <!-- LEFT MENU -->
+    <div class="manikin-tabs">
+        <button class="manikin-tab active" onclick="openTab(event,'features')">Features <span>➜</span></button>
+        <button class="manikin-tab" onclick="openTab(event,'circulation')">Circulation <span>➜</span></button>
+        <button class="manikin-tab" onclick="openTab(event,'airway')">Airway Management <span>➜</span></button>
+        <button class="manikin-tab" onclick="openTab(event,'hemorrhage')">Hemorrhage Control <span>➜</span></button>
+        <button class="manikin-tab" onclick="openTab(event,'respiration')">Respiration <span>➜</span></button>
+        <button class="manikin-tab" onclick="openTab(event,'head')">Head & Hypothermia <span>➜</span></button>
+        <button class="manikin-tab" onclick="openTab(event,'burns')">Burn Management <span>➜</span></button>
+        <button class="manikin-tab" onclick="openTab(event,'included')">What's Included <span>➜</span></button>
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="manikin-content">
+       
+        <div id="features" class="manikin-panel active">
+            <ul>
+                <li>Anatomically-correct, cadaver-casted, surgical-capable airway</li>
+                <li>Reinforced procedural areas for increased durability</li>
+                <li>Downside, upper & lower extremity wounds</li>
+                <li>IO-capable humeral head, tibia & sternum</li>
+                <li>2nd and 5th ICS needle decompression site</li>
+                <li>Posterior wound</li>
+                <li>Two removable amputations with sleeve</li>
+                <li>Urinary catheterization</li>
+            </ul>
+        </div>
+
+        <div id="circulation" class="manikin-panel">
+            <ul>
+                <li>Urinary Catheterization</li>
+                <li>IO Access – Tibia (bilateral; provides flash)</li>
+                <li>IO Access – Humeral Head (bilateral; provides flash)</li>
+                <li>IO Access – Sternum</li>
+                <li>Chest Compressions – Manual</li>
+                <li>Chest Compressions – Automated</li>
+                <li>AED / Defibrillator Pad Application</li>
+            </ul>
+        </div>
+
+        <div id="airway" class="manikin-panel">
+            <ul>
+                <li>Airway Examination</li>
+                <li>Head-tilt / Chin-lift / Jaw-thrust</li>
+                <li>Airway Suction</li>
+                <li>Postural Airway Management</li>
+                <li>Nasopharyngeal / Oropharyngeal / Supraglottic Airway Insertion</li>
+                <li>Surgical Cricothyroidotomy</li>
+                <li>Maxillo-facial / Nasal Packing</li>
+                <li>Percutaneous Needle Cricothyrotomy</li>
+                <li>Laryngoscopy / Tracheal Intubation</li>
+            </ul>
+        </div>
+
+        <div id="hemorrhage" class="manikin-panel">
+            <ul>
+                <li>Catastrophic / Life-Threatening Hemorrhage Control</li>
+                <li>Tourniquet Application</li>
+                <li>Wound Packing</li>
+                <li>Junctional Tourniquet Application</li>
+                <li>Hemostatic Dressing Application</li>
+            </ul>
+        </div>
+
+        <div id="respiration" class="manikin-panel">
+            <ul>
+                <li>Artificial Ventilation – BVM</li>
+                <li>Artificial Ventilation – Intubated</li>
+                <li>Chest Seal Application</li>
+                <li>Finger Thoracostomy Site</li>
+                <li>Chest Examination</li>
+                <li>Needle Chest Decompression</li>
+            </ul>
+        </div>
+
+        <div id="head" class="manikin-panel">
+            <ul>
+                <li>Spinal Collar Application</li>
+                <li>Manual Inline Stabilization</li>
+                <li>Thermal Blanket Application</li>
+                <li>Scalp Laceration Treatment</li>
+                <li>Open Head Wound Management</li>
+            </ul>
+        </div>
+
+        <div id="burns" class="manikin-panel">
+            <ul>
+                <li>Burn Dressing Application</li>
+                <li>Water-Jel Dressing Application</li>
+                <li>Burn Towel & Sheet Application</li>
+                <li>Antibacterial / Antimicrobial Dressing Application</li>
+                <li>Silicone-Coated Synthetic Mesh Dressing</li>
+            </ul>
+        </div>
+
+        <div id="included" class="manikin-panel">
+            <ul>
+                <li>Surgical Airway Kit</li>
+                <li>IV Cannulation Sleeves</li>
+                <li>Skin Repair Kit</li>
+                <li>2× Blood Pumps</li>
+                <li>4× Amputations</li>
+                <li>2× Cover Sleeves</li>
+                <li>
+                    Maintenance Kit:
+                    <ul>
+                        <li>Setting Powder</li>
+                        <li>Powder Brush</li>
+                        <li>100ml Sweat & Tears</li>
+                        <li>Bluetooth Speaker USB Cable</li>
+                        <li>Hairbrush</li>
+                    </ul>
+                </li>
+                <li>24× IO Patches</li>
+                <li>Adult Soft Foam Case</li>
+                <li>Underwear</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<div class="manikin-wrapper-title2 ">
+    <div class="manikin-wrapper-title-lable2">
+ <h2>
+Manikin Specifications</h2>
+    </div>
+<div class="table"></div>
+   <table class="spec-table">
+  <tr>
+    <th colspan="2">Man</th>
+  </tr>
+
+  <tr>
+    <td class="label">Age</td>
+    <td class="value">20–30 Y/O</td>
+  </tr>
+
+  <tr>
+    <td class="label">Height</td>
+    <td class="value">6’0”</td>
+  </tr>
+
+  <tr>
+    <td class="label">Weight</td>
+    <td class="value">70 lbs</td>
+  </tr>
+
+  <tr>
+    <td class="label">Clothing</td>
+    <td class="value">Men’s MD / LG</td>
+  </tr>
+
+  <tr>
+    <td class="label">Shoe Size</td>
+    <td class="value">US Men’s 11</td>
+  </tr>
+</table>
+</div>
+
+<div id="footer-placeholder"></div>
+
+<script>
+function openTab(event, tabId) {
+    const tab = event.currentTarget;
+    const panel = document.getElementById(tabId);
+
+    if (window.innerWidth > 768) {
+        // Desktop: normal tab behavior
+        document.querySelectorAll('.manikin-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.manikin-tab').forEach(t => t.classList.remove('active'));
+
+        tab.classList.add('active');
+        panel.classList.add('active');
+    } else {
+        // Mobile accordion: toggle clicked tab
+        const isActive = panel.classList.contains('active');
+
+        // Close all panels
+        document.querySelectorAll('.manikin-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.manikin-tab').forEach(t => t.classList.remove('active'));
+
+        // Only open if it was not already active
+        if (!isActive) {
+            tab.classList.add('active');
+            panel.classList.add('active');
+        }
+    }
+}
+
+</script>
+
+<script>
+  fetch("../footer.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Footer file not found");
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Error loading footer:", error);
+    });
+</script>
+
+</body>
+
+</html>
+

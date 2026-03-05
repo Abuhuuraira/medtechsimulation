@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> MAJOR LEG TRAUMA TRAINER - Mobile</title>
+  <link rel="stylesheet" href="/css/manikin_golobal.css " >
+ 
+</head>
+
+<body>
+
+     <div id="navbar-placeholder"></div>
+
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+  <div class="hero-blur-box">
+    <h1>
+MAJOR LEG
+TRAUMA TRAINER DETAIL
+      <span></span>
+    </h1>
+  </div>
+</div>
+  <!-- CHAT BUTTON -->
+    <button class="chat-btn">💬 Chat With Us!</button>
+  </section>
+
+  <script>
+  fetch("../navbar.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Navbar file not found");
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById("navbar-placeholder").innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Error loading navbar:", error);
+    });
+</script>
+
+<section class="manikin-section">
+  <div class="manikin-container">
+
+    <!-- LEFT IMAGE BOX -->
+    <div class="image-box" style="padding: 20px 10px 8rem;">
+         <span class="right-border"></span>
+      <img src="/static_files/images/Major Leg Trauma Trainer_edited.png" alt="Advanced Manikin Wome">
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="content-box">
+    <h2 class="title" >MAJOR LEG TRAUMA TRAINER
+</h2>
+      <div class="desc-label">  <span></span>
+        Description</div>
+
+      <p class="description">
+     Our Major Leg Trauma Trainer features large cavity wounds and integrated bleeding tubes to simulate catastrophic bleeding using a manual pump.
+<br>
+With its lifelike look, feel, and weight, our Major Leg Trauma Trainer allows for an immersive simulation of tourniquet application, as well as hemorrhage and gunshot wound management.
+<br>
+Whether used on its own or alongside a SIMBODIES manikin, the trainer provides immediate feedback on proper tourniquet use and bleeding control making it an essential tool for medics, first responders, military personnel, and clinical educators.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+
+<div class="manikin-wrapper-title ">
+    <div class="manikin-wrapper-title-lable">
+ <h2>
+MANIKIN DETAIL</h2>
+    </div>
+   
+</div>
+
+<div class="manikin-wrapper">
+
+    <!-- LEFT MENU -->
+    <div class="manikin-tabs">
+        <button class="manikin-tab active" onclick="openTab(event,'features')">Features <span>➜</span></button>
+        
+       
+        
+       
+        
+        <button class="manikin-tab" onclick="openTab(event,'included')">What’s Included <span>➜</span></button>
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="manikin-content">
+
+        <!-- FEATURES -->
+        <div id="features" class="manikin-panel active">
+            <ul>
+        <li>Female or male genitalia</li>
+        <li>Closed mouth</li>
+        <li>Anatomically accurate major leg trauma with exposed muscle and arterial bleed</li>
+        <li>Built-in bleeding system for real-time feedback</li>
+        <li>Compatible with most commercial tourniquets</li>
+        <li>Durable and easy to clean for repeated use</li>
+        <li>Portable and lightweight, train anywhere, anytime</li>
+    </ul>
+        </div>
+
+              
+
+        
+
+       
+
+        <!-- INCLUDED -->
+        <div id="included" class="manikin-panel">
+            <ul>
+        <li>Individually wrapped parts</li>
+        <li>Bleeding Tubes</li>
+        <li>1x Blood Pump</li>
+        <li>1x Leg Task Trainer</li>
+    </ul>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<div id="footer-placeholder"></div>
+
+<script>
+function openTab(event, tabId) {
+    const tab = event.currentTarget;
+    const panel = document.getElementById(tabId);
+
+    if (window.innerWidth > 768) {
+        // Desktop: normal tab behavior
+        document.querySelectorAll('.manikin-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.manikin-tab').forEach(t => t.classList.remove('active'));
+
+        tab.classList.add('active');
+        panel.classList.add('active');
+    } else {
+        // Mobile accordion: toggle clicked tab
+        const isActive = panel.classList.contains('active');
+
+        // Close all panels
+        document.querySelectorAll('.manikin-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.manikin-tab').forEach(t => t.classList.remove('active'));
+
+        // Only open if it was not already active
+        if (!isActive) {
+            tab.classList.add('active');
+            panel.classList.add('active');
+        }
+    }
+}
+
+</script>
+
+<script>
+  fetch("../footer.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Footer file not found");
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Error loading footer:", error);
+    });
+</script>
+
+</body>
+
+</html>

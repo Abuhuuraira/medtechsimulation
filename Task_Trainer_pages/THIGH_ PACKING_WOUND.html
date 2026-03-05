@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>  THIGH
+PACKING WOUND</title>
+<link rel="stylesheet" href="/css/manikin_golobal.css " >
+</head>
+
+<body>
+
+     <div id="navbar-placeholder"></div>
+
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+  <div class="hero-blur-box">
+    <h1>
+ THIGH
+PACKING WOUND DETAIL
+      <span></span>
+    </h1>
+  </div>
+</div>
+  <!-- CHAT BUTTON -->
+    <button class="chat-btn">💬 Chat With Us!</button>
+  </section>
+
+  <script>
+  fetch("../navbar.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Navbar file not found");
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById("navbar-placeholder").innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Error loading navbar:", error);
+    });
+</script>
+
+<section class="manikin-section">
+  <div class="manikin-container">
+
+    <!-- LEFT IMAGE BOX -->
+   <div class="image-box"style="padding: 20px 10px 12rem;">
+         <span class="right-border"></span>
+      <img src="/static_files/images/Thigh Packing Wound_edited.png" alt="Advanced Manikin Wome">
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="content-box">
+    <h2 class="title" >THIGH PACKING WOUND
+</h2>
+      <div class="desc-label">  <span></span>
+        Description</div>
+
+      <p class="description">
+     This full-size human thigh model features large internal cavities, a superficial deep oval abrasion, gunshot wounds with soft tissue, and bone equipped with integrated bleeding tubes.
+<br>
+The Thigh Wound Packing Trainer provides a high-fidelity, hands-on experience for practicing one of the most critical trauma interventions: wound packing.
+<br>
+Designed to simulate a deep, bleeding thigh injury, it mimics the feel and resistance of real tissue, enabling learners to develop proper technique and confidence under pressure.
+<br>
+Part of our advanced range of hemorrhage control task trainers, this model delivers lifelike bleeding simulations to challenge and prepare medics, educators, and first responders for real-world emergencies.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+
+<div class="manikin-wrapper-title ">
+    <div class="manikin-wrapper-title-lable">
+ <h2>
+MANIKIN DETAIL</h2>
+    </div>
+   
+</div>
+
+
+
+    <!-- RIGHT CONTENT -->
+    <div class="manikin-wrapper">
+
+    <!-- LEFT MENU -->
+    <div class="manikin-tabs">
+        <button class="manikin-tab active" onclick="openTab(event,'features')">Features <span>➜</span></button>
+       
+        
+        
+       
+       
+        
+        <button class="manikin-tab" onclick="openTab(event,'included')">What’s Included <span>➜</span></button>
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="manikin-content">
+
+        <!-- FEATURES -->
+        <div id="features" class="manikin-panel active">
+            <ul>
+        <li>Realistic wound cavity with simulated bleeding</li>
+        <li>Supports training in gauze packing, direct pressure, and hemostatic dressing application</li>
+        <li>Durable, skin-like material designed for repeated practice</li>
+        <li>Easy to set up, clean, and reset for multiple training sessions</li>
+        <li>Compatible with field, classroom, or scenario-based training environments</li>
+    </ul>
+        </div>
+
+             
+
+        
+
+       
+
+        <!-- INCLUDED -->
+        <div id="included" class="manikin-panel">
+             <ul>
+        <li>Bleeding Tubes</li>
+        <li>1x Blood Pump</li>
+        <li>1x Thigh Trainer</li>
+        <li>Carry Bag</li>
+    </ul>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div id="footer-placeholder"></div>
+
+<script>
+function openTab(event, tabId) {
+    const tab = event.currentTarget;
+    const panel = document.getElementById(tabId);
+
+    if (window.innerWidth > 768) {
+        // Desktop: normal tab behavior
+        document.querySelectorAll('.manikin-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.manikin-tab').forEach(t => t.classList.remove('active'));
+
+        tab.classList.add('active');
+        panel.classList.add('active');
+    } else {
+        // Mobile accordion: toggle clicked tab
+        const isActive = panel.classList.contains('active');
+
+        // Close all panels
+        document.querySelectorAll('.manikin-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.manikin-tab').forEach(t => t.classList.remove('active'));
+
+        // Only open if it was not already active
+        if (!isActive) {
+            tab.classList.add('active');
+            panel.classList.add('active');
+        }
+    }
+}
+
+</script>
+
+<script>
+  fetch("../footer.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Footer file not found");
+      }
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Error loading footer:", error);
+    });
+</script>
+
+</body>
+
+</html>
+
