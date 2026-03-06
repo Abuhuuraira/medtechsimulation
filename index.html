@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>MedTech Simulation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/css/manikin_golobal.css" />
     <style>
     * {
   margin: 0;
@@ -13,93 +13,14 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
-
-/* HERO */
-.hero {
-  position: relative;
-  height: 100vh;
-  background: url("/static_files/images/banner_image.jpeg") center / cover no-repeat;
-  display: flex;
-  align-items: flex-start;     /* aligns vertically to top */
-  justify-content: flex-start; /* aligns content to left */
-  padding-left: 60px;          /* distance from left edge */
-  padding-top: 60px;           /* distance from top */
+/* Prevent horizontal scrolling on small devices */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-}
 
-.hero-content {
-  position: relative;
-  max-width: 600px;
-}
-.hero-blur-box {
-  padding: 50px 40px;               /* more padding = taller box */
-  background: rgba(0, 0, 0, 0.15);  /* dark glass effect */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(8px); /* Safari support */
-  border-radius: 6px;
-  display: block;                    /* allows width/height to work */
-  width: 800px;                      /* width of the blur box */
-  min-height: 200px;                 /* increased height */
-  text-align: left;                  /* content aligned left */
-  margin: 150px 0 0 0;                /* space from top, left edge of container */
-}
-
-
-.hero-content h1 {
-  color: #fff;
-  font-size: 52px;
-  font-weight: 800;
-  line-height: 1.2;
-  margin: 0;
-}
-.hero-content span {
-  display: inline-block;
-  margin-top: 10px;
-  max-width: 320px;
-  max-height: 520px;
-  width: auto;
-  height: auto;
-}
-
-/* CHAT BUTTON */
-.chat-btn {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #0b1e5b;
-  color: #ffffff;
-  border: none;
-  padding: 14px 28px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 700;
-  box-shadow: 0 8px 24px rgba(2,12,35,0.12);
-}
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 15px 25px;
-  }
-
-  .navbar nav {
-    display: none;
-  }
-
-  .hero {
-    padding-left: 25px;
-  }
-
-  .hero-content h1 {
-    font-size: 36px;
-  }
-}
 
 /* CATEGORIES SECTION */
 .categories {
@@ -117,10 +38,12 @@
 
 .category-card {
   position: relative;
-  height: 600px;
+  height: 803px;
   overflow: hidden;
   border-radius: 4px;
   text-decoration: none;
+  display: block;
+  width: 400px;
   
   
   background: url("static_files/images/background_glass.jpg");
@@ -133,7 +56,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: contain;      /* image fills card */
+  background-size: cover;      /* image fills card */
   background-position: center;  /* keeps image centered */
   transition: transform 0.5s ease;
 }
@@ -166,11 +89,12 @@
   font-size: 22px;
   letter-spacing: 1px;
   color: #002060;
+  margin-left: 60px;
 }
 
 /* left text box */
 .card-label .label-text {
-  padding: 14px 22px;
+  padding: 14px 68px;
   display: flex;
   align-items: center;
 }
@@ -192,20 +116,45 @@
 
 
 
-/* RESPONSIVE */
+/* RESPONSIVE: tablet + mobile adjustments for categories */
 @media (max-width: 992px) {
+  /* Tablets: two columns */
   .categories-inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 1000px;
   }
 
   .category-card {
-    height: 360px;
+    height: 420px;
   }
 
   .card-content {
     left: 20px;
     bottom: 20px;
+    transform: none;
   }
+}
+
+@media (max-width: 768px) {
+  /* Phones: single column, compact spacing */
+  .categories-inner {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 0 12px;
+  }
+
+  .category-card {
+    height: 563px;
+  }
+
+  .card-content {
+    left: 16px;
+    bottom: 16px;
+    transform: none;
+  }
+
+  .card-label { font-size: 18px; }
 }
 
 
@@ -296,9 +245,16 @@
 
 
 .hero-image-box img {
-  max-width: 500px;
+  max-width: 100%;
   display: block;
+  height: auto;
   transform: scale(1.2);   /* zoom level */
+}
+
+/* Make all media elements responsive to avoid overflow */
+img, picture, video, iframe, embed {
+  max-width: 100%;
+  height: auto;
 }
 
 /* SECTION */
@@ -392,14 +348,61 @@
   .catalog-grid { flex-direction: column; gap: 28px; }
   .catalog-card { width: 100%; max-width: 420px; margin: 0 auto; height: auto; }
   .card-bg { padding: 18px; }
-  .card-footer { position: static; transform: none; margin: 18px auto 0; }
+  .card-footer { position: static; transform: none; margin: 0px auto 0; }
   .arrow-btn { margin-left: 12px; }
 }
 
 
 
+  /* ===== ADDED: Mobile / small-screen adjustments ===== */
+
+  /* Chat button base styling and positioning */
+  .chat-btn {
+    position: fixed;
+    right: 28px;
+    bottom: 30px;
+    z-index: 50;
+    background: #ff0000;
+    color: #ffffff;
+    border: none;
+    border-radius: 28px;
+    padding: 12px 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  /* HERO: stack content and scale image on tablets and smaller */
+  @media (max-width: 992px) {
+    .hero-section { padding: 40px 20px; }
+    .hero-container { flex-direction: column; align-items: center; gap: 24px; }
+    .hero-content-info { max-width: 100%; text-align: center; }
+    .hero-content-info h1 { font-size: 32px; }
+    .hero-content-info p { font-size: 15px; }
+    .hero-btn { left: 0; }
+    .hero-image-wrapper { padding: 20px; height: auto; }
+    .hero-image-box { width: 320px; height: 320px; margin-left: 0; }
+    .hero-image-box img { width: 100%; height: 100%; object-fit: contain; transform: none; }
+  }
+
+  /* SMALL: extra compact adjustments for phones */
+  @media (max-width: 480px) {
+    .categories { padding: 40px 16px; }
+    .category-card { height: 563px; }
+    .card-label { font-size: 18px; }
+    .hero-section { padding: 30px 12px; }
+    .hero-content-info h1 { font-size: 24px; }
+    .hero-content-info p { font-size: 14px; }
+    .hero-image-box { width: 220px; height: 220px; }
+    .hero-image-box img { width: 100%; height: 100%; object-fit: contain; transform: none; }
+    .catalog-card { width: 100%; }
+    .view-all a { padding: 12px 18px; }
+    .chat-btn { right: 16px; bottom: 20px; padding: 10px 12px; font-size: 16px; }
+  }
+
   </style>
 </head>
+ 
 <body>
 
   <div id="navbar-placeholder"></div>
@@ -435,9 +438,10 @@
         <div class="card-label">
   <span class="label-text">MANIKIN</span>
  
-  </div>
+ 
   <span class="label-arrow">→</span>
 </div>
+ </div>
 
      
     </a>
@@ -530,7 +534,7 @@
     <!-- CARD 2 -->
     <div class="catalog-card">
       <div class="card-bg">
-        <img src="/static_files/images/Burnt Manikin (1)_edited_edited_edited_edited_edited.png" alt="Burnt Manikin">
+        <img src="/static_files/images/Burnt_Manikin.png" alt="Burnt Manikin">
       </div>
       <div class="card-footer">
         <span>Burnt Manikin</span>

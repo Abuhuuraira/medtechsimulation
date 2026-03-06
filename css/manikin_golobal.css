@@ -206,6 +206,53 @@ body {
   position: relative;
 }
 
+/* Duplicate title element used only for mobile/tablet reordering */
+.content-title { display: none; }
+
+/* Scoped mobile/tablet reorder for manikin pages */
+@media (max-width: 1024px) {
+  .manikin-section.manikin-reorder .manikin-container {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 18px;
+    align-items: center;
+  }
+
+  /* show duplicate title above image, hide desktop title */
+  .manikin-section.manikin-reorder .content-title { display: block; }
+  .manikin-section.manikin-reorder .content-title h2 { color: red; font-size: 34px; margin: 0; text-align: center; }
+  .manikin-section.manikin-reorder .content-box .title { display: none; }
+
+  /* center image and make it responsive */
+  .manikin-section.manikin-reorder .image-box { order: 2; display: flex; justify-content: center; }
+  .manikin-section.manikin-reorder .image-box img { width: 100%; max-width: 480px; height: auto; }
+
+  /* description block follows image */
+  .manikin-section.manikin-reorder .content-box { order: 3; width: 100%; max-width: 720px; }
+
+  /* make desc label flow with content */
+  .manikin-section.manikin-reorder .desc-label {
+    position: relative;
+    top: auto;
+    left: auto;
+    min-width: auto;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+
+  /* center MANIKIN DETAIL heading below the section */
+  .manikin-wrapper-title-lable h2 { text-align: center; margin: 0; }
+}
+
+/* Tweak further for small phones */
+@media (max-width: 480px) {
+  .manikin-section.manikin-reorder .content-title h2 { font-size: 28px; }
+  .manikin-section.manikin-reorder .image-box img { max-width: 360px; }
+  .manikin-section.manikin-reorder .desc-label { font-size: 24px; padding: 10px 20px; }
+  .manikin-section.manikin-reorder .description { font-size: 18px; }
+}
+
 /* IMAGE BOX */
 .image-box {
   position: relative;
