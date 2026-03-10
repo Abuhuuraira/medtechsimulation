@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/css/manikin_golobal.css" />
     <style>
+      @import url('https://fonts.cdnfonts.com/css/din-neuzeit-grotesk');
+      @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap');
+      @import url('https://fonts.cdnfonts.com/css/avenir');
     * {
   margin: 0;
   padding: 0;
@@ -19,8 +22,17 @@ html, body {
   max-width: 100%;
 }
 
-
-
+h1{
+  font-family: oswald, sans-serif;
+}
+h5{
+  font-family: 'DIN Neuzeit Grotesk', sans-serif;
+  font-size: 50px;
+}
+p{
+  font-family:  'Avenir', sans-serif;
+  font-size: 16px;
+}
 
 /* CATEGORIES SECTION */
 .categories {
@@ -71,6 +83,7 @@ html, body {
 
 /* content bottom */
 /* content bottom - centered horizontally */
+/* CARD CONTENT */
 .card-content {
   position: absolute;
   bottom: 30px;
@@ -85,11 +98,27 @@ html, body {
   display: inline-flex;
   align-items: stretch;
   background: #fff;
-  font-weight: 800;
-  font-size: 22px;
+  font-weight: bold;
+  font-size: 25px;
   letter-spacing: 1px;
-  color: #002060;
-  margin-left: 60px;
+  color: rgb(15, 0, 151);
+  margin-left: 20px;
+  /* hidden state */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s ease;
+}
+
+/* when visible */
+.card-label.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* hover glow */
+.card-label:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
 }
 
 /* left text box */
@@ -97,21 +126,54 @@ html, body {
   padding: 14px 68px;
   display: flex;
   align-items: center;
+  font-family: 'DIN Neuzeit Grotesk', sans-serif;
 }
 
-/* right tall arrow box */
+/* arrow box */
 .card-label .label-arrow {
   width: 48px;
   background: #ffffff;
-   display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   font-size: 50px;
   font-weight: 700;
   color: #002060;
-}
-.card-label .label-arrow {
   padding: 18px 0;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+/* arrow movement */
+.card-label:hover .label-arrow {
+  transform: translateX(6px);
+}
+
+/* reveal animation */
+@keyframes labelReveal {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Red rectangle overlay */
+.card-label .label-arrow::after {
+  content: "";
+  position: absolute;
+  top: -90px;
+  left: -12px;
+  right: -15px;
+  bottom: -24px;
+  border: 3px solid red;
+  background: transparent;
+  border-radius: 4px;
+  pointer-events: none;
+  box-sizing: border-box;
 }
 
 
@@ -155,6 +217,37 @@ html, body {
   }
 
   .card-label { font-size: 18px; }
+
+  /* Mobile-specific: scale down pseudo-element overlays so they don't overflow */
+  .card-label .label-arrow::after {
+    top: -8px !important;
+    left: -8px !important;
+    right: -8px !important;
+    bottom: -8px !important;
+    border-width: 2px !important;
+  }
+
+  .arrow-btn::after {
+    top: -6px !important;
+    left: -6px !important;
+    right: -6px !important;
+    bottom: -6px !important;
+    border-width: 2px !important;
+    border-radius: 6px !important;
+  }
+
+  /* Ensure category cards fill the available width on phones */
+  .category-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  /* Make the background fill the card without overflow */
+  .categories-bg { background-size: cover !important; background-position: center !important; }
+
+  /* Make hero frame overlay fit correctly on small screens */
+  .hero-image-frame::after { inset: 0 !important; left: 6px !important; right: 6px !important; top: 6px !important; bottom: 6px !important; border-width: 3px !important; }
 }
 
 
@@ -179,17 +272,18 @@ html, body {
 }
 
 .hero-content-info h1 {
-  font-size: 48px;
-  font-weight: 800;
+  font-size: 50px;
+  font-weight: 600;
   color: #ff0000;
   margin-bottom: 25px;
 }
 
 .hero-content-info p {
-  font-size: 15px;
-  line-height: 1.7;
+  
+  line-height: 1.4;
   color: #ffffff;
   margin-bottom: 40px;
+  font-weight: lighter;
 }
 /* Red rectangle background */
 .hero-btn-wrapper {
@@ -228,19 +322,35 @@ html, body {
 .hero-image-frame {
   display: inline-block;
   padding: 8px;           /* red border thickness */
-  border: 4px solid blue;  /* red rectangle */
+  border: none;
   background: transparent;
   overflow: visible;      /* allow child overflow */
   position: relative;
 }
 
+/* draw blue rectangle overlay on top of the image */
+.hero-image-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 4px solid blue;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 5;
+  left: 73px;
+    right: 60px;
+    bottom: -24px;
+}
+
 .hero-image-box {
   background: url("static_files/images/background_glass.jpg") no-repeat center;
-  background-size: auto;
+  /* enlarged background image to increase visible width/height */
+  background-size: 140% 140%;
   width: 500px;           /* wider than the red rectangle */
   height: 500px;
   position: relative;
   margin-left: 30px;     /* move left to overflow red rectangle */
+  z-index: 1;
 }
 
 
@@ -267,7 +377,7 @@ img, picture, video, iframe, embed {
 /* TITLE */
 .catalog-title {
   color: #ff0000;
-  font-size: 34px;
+  
   font-weight: 800;
   margin-bottom: 60px;
 }
@@ -304,8 +414,25 @@ img, picture, video, iframe, embed {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: 'DIN Neuzeit Grotesk', sans-serif;
+
+  /* Scroll animation initial state */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s ease;
 }
 
+/* When scrolled into view */
+.card-footer.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* hover glow */
+.card-footer:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
 .card-footer span {
   font-weight: 600;
   color: #0b1e5b;
@@ -326,6 +453,7 @@ img, picture, video, iframe, embed {
   background: #fff;
   transition: all 0.3s ease;
   box-shadow: 0 6px 18px rgba(2,12,35,0.08);
+  position: relative;
 }
 
 .arrow-btn:hover {
@@ -333,14 +461,39 @@ img, picture, video, iframe, embed {
   color: #ffffff;
 }
 
+/* Red rectangle overlay over catalog arrow buttons */
+.arrow-btn::after {
+  content: "";
+  position: absolute;
+  top: -99px;
+  left: -20px;
+  right: -15px;
+  bottom: -70px;
+  border: 3px solid red;
+  background: transparent;
+  border-radius: 6px;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
 /* VIEW ALL */
 .view-all a {
   background: #ffffff;
   color: #0000ff;
-  padding: 14px 36px;
+  padding: 17px 37px;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 600;
   border-radius: 2px;
+  font-size: 32px;
+
+  
+}
+/* Hover effect */
+.view-all a:hover {
+  background: #ff0000;   /* red background on hover */
+  color: #ffffff;        /* white text on hover */
+  transform: scale(1.05);          /* slight zoom */
+  box-shadow: 0 12px 30px rgba(11,30,91,0.3);  /* subtle glow */
 }
 
 /* adjust catalog layout on smaller screens */
@@ -398,6 +551,26 @@ img, picture, video, iframe, embed {
     .catalog-card { width: 100%; }
     .view-all a { padding: 12px 18px; }
     .chat-btn { right: 16px; bottom: 20px; padding: 10px 12px; font-size: 16px; }
+
+    /* Tighter overlay sizes for very small screens */
+    .card-label .label-arrow::after {
+      top: -49px !important;
+        left: -13px !important;
+        right: -11px !important;
+        bottom: -12px !important;
+      border-width: 2px !important;
+    }
+
+    .arrow-btn::after {
+              top: -80px !important;
+        left: -10px !important;
+        right: -11px !important;
+        bottom: -38px !important;
+      border-width: 2px !important;
+    }
+
+    .hero-image-frame::after { inset: 0 !important; left: 32px !important; right: 23px !important; top: 15px !important; bottom:-10px !important; border-width: 2px !important; }
+    .category-card { width: 100% !important; }
   }
 
   </style>
@@ -431,7 +604,7 @@ img, picture, video, iframe, embed {
 
     <!-- CARD 1 -->
     <a href="#" class="category-card">
-      <div class="categories-bg" style="background-image:url('/static_files/images/Mainkin.png');"></div>
+      <div class="categories-bg" style="background-image:url('/static_files/images/Mainkin.png'); height:86%;" ></div>
       <div class="card-overlay"></div>
 
       <div class="card-content">
@@ -448,7 +621,7 @@ img, picture, video, iframe, embed {
 
     <!-- CARD 2 -->
     <a href="#" class="category-card">
-      <div class="categories-bg" style="background-image:url('/static_files/images/task_trainer.png');"></div>
+      <div class="categories-bg" style="background-image:url('/static_files/images/task_trainer.png');height:86%;"></div>
       <div class="card-overlay"></div>
 
       <div class="card-content">
@@ -461,7 +634,7 @@ img, picture, video, iframe, embed {
 
     <!-- CARD 3 -->
     <a href="#" class="category-card">
-      <div class="categories-bg" style="background-image:url('/static_files/images/comparison_chart.jpg');"></div>
+      <div class="categories-bg" style="background-image:url('/static_files/images/comparison_chart.jpg');height:100%;"></div>
       <div class="card-overlay"></div>
 
       <div class="card-content">
@@ -486,17 +659,16 @@ img, picture, video, iframe, embed {
       </h1>
 
       <p>
-        “This website will serve as MedTech’s official U.S. home for SIMBODIES trauma
+        This website will serve as MedTech’s official U.S. home for SIMBODIES trauma
         simulation manikins. It will showcase the full product line, highlight their
         hyper-realistic training capabilities, and explain how EMS programs can use
         SIMBODIES in classroom, lab, and field simulations.
-        <br><br>
-        The site will present MedTech’s national SIMBODIES training pathway, including
+                The site will present MedTech’s national SIMBODIES training pathway, including
         virtual unboxing/orientation, on-site simulation training, and CAPCE-accredited
         continuing education. It should clearly position MedTech as the trusted,
         mission-driven distributor with a manufacturer-trained field team, and make it
         simple for schools to learn about the products, request demos, schedule training,
-        and contact the sales team.”
+        and contact the sales team.
       </p>
 
      <div class="hero-btn-wrapper">
@@ -516,7 +688,7 @@ img, picture, video, iframe, embed {
 </section>
 
 <section class="catalog-section">
-  <h2 class="catalog-title">MANIKIN CATALOG</h2>
+  <h5 class="catalog-title">MANIKIN CATALOG</h5>
 
   <div class="catalog-grid">
 
@@ -593,6 +765,34 @@ img, picture, video, iframe, embed {
     .catch(error => {
       console.error("Error loading navbar:", error);
     });
+</script>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+document.querySelectorAll(".card-label").forEach(el => {
+  observer.observe(el);
+});
+</script>
+
+<script>
+const scrollObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+document.querySelectorAll(".card-footer, .view-all").forEach(el => {
+  scrollObserver.observe(el);
+});
 </script>
 
 </body>

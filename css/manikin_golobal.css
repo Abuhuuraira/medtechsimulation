@@ -1,4 +1,21 @@
         /* HERO */
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap');
+        @import url('https://fonts.cdnfonts.com/css/din-neuzeit-grotesk');
+      h1,h2{
+  font-family: oswald, sans-serif;
+}
+h5{
+  font-family: 'DIN Neuzeit Grotesk', sans-serif;
+  font-size: 50px;
+}
+p{
+  font-family:  'Avenir', sans-serif;
+  font-size: 16px;
+}
+li{
+  font-family:  'Avenir', sans-serif;
+  font-size: 16px;
+}
 .hero {
   position: relative;
   height: 100vh;
@@ -32,15 +49,28 @@
   min-height: 200px;                 /* increased height */
   text-align: left;                  /* content aligned left */
   margin: 150px 0 0 -60px;          /* space from top, left edge of container */
+animation: slideFromLeft 1s ease-out;
 }
 
+/* Keyframes */
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
 .hero-content h1 {
   color: #fff;
-  font-size: 52px;
+  font-size: 70px;
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.5;
   margin: 0;
+  font-family: oswald, sans-serif;
 }
 .hero-blur-box {
   padding: 30px 50px;
@@ -672,4 +702,7 @@ margin-bottom: 3.5rem;
     font-size: 13px;
   }
 }
+
+
+
 

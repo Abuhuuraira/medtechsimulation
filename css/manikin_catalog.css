@@ -1,0 +1,333 @@
+/* MOBILE ACCORDION */
+@media (max-width: 768px) {
+
+    .manikin-wrapper {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    /* Tabs become full-width cards */
+    .manikin-tab {
+        width: 100%;
+        background: #001248;
+        color: #ffffff;
+        margin-bottom: 4px;
+        text-align: left;
+        padding: 14px 16px;
+        border-radius: 8px;
+        border: 1px solid #2f4aa0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    /* Arrow */
+    .manikin-tab span {
+        display: inline-flex;
+        transition: transform 0.3s ease;
+    }
+
+    .manikin-tab.active span {
+        transform: rotate(90deg);
+    }
+
+    /* Panels hidden by default */
+    .manikin-panel {
+        display: none;
+        background: #f9f9f9;
+        color: #000;
+        padding: 12px 16px;
+        margin-bottom: 8px;
+        border-radius: 0 0 8px 8px;
+        border: 1px solid #ddd;
+        border-top: none;
+    }
+
+    .manikin-panel li {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 6px;
+    }
+
+    .manikin-content {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+/* Small phones adjustments */
+@media (max-width: 480px) {
+    .manikin-tab {
+        font-size: 15px;
+        padding: 12px 14px;
+    }
+
+    .manikin-panel li {
+        font-size: 15px;
+    }
+}
+
+/* ========================================
+   MOBILE ACCORDION & MANIKIN SECTION
+   ======================================== */
+
+/* Accordion for mobile */
+@media (max-width: 768px) {
+
+    /* Wrapper stacking */
+    .manikin-wrapper {
+        flex-direction: row;
+        gap: 43px;
+        padding: 192px 41px;
+        margin-top: -98px;
+    }
+
+    /* Tabs become full-width cards */
+    .manikin-tab {
+        width: 100%;
+        background: #001248;
+        color: #ffffff;
+        margin-bottom: 4px;
+        text-align: left;
+        padding: 14px 16px;
+        border-radius: 8px;
+        border: 1px solid #2f4aa0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    /* Arrow rotation */
+    .manikin-tab span {
+        display: inline-flex;
+        transition: transform 0.3s ease;
+    }
+    .manikin-tab.active span {
+        transform: rotate(90deg);
+    }
+
+    /* Panels hidden by default */
+    .manikin-panel {
+        display: none;
+        background: #f9f9f9;
+        color: #000;
+        padding: 12px 16px;
+        margin-bottom: 8px;
+        border-radius: 0 0 8px 8px;
+        border: 1px solid #ddd;
+        border-top: none;
+    }
+
+    .manikin-panel li {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 6px;
+    }
+
+    .manikin-content {
+        width: 100%;
+        padding: 0;
+    }
+
+}
+
+
+
+
+@media screen and (max-width: 992px) {
+  /* Stack content vertically */
+  .manikin-container {
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  /* Title first */
+  .content-box .title {
+    color: red;
+    font-size: 36px;
+    margin: 20px 0 20px 0;
+    position: static;
+    text-align: center;
+  }
+
+  /* Image below title */
+  .image-box {
+    position: relative;
+    width: 80%;
+    margin: 20px 0;
+    padding: 0;
+    background: url(/static_files/images/background_glass.jpg);
+  }
+
+  .image-box img {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+
+  
+
+  /* Description label below image */
+  .desc-label {
+    position: static;
+    top: auto;
+    left: auto;
+    margin: 15px 0;
+    min-width: auto;
+    width: 90%;
+    font-size: 24px;
+    text-align: center;
+    padding: 12px 20px;
+  }
+
+  
+
+  /* Description paragraph below label */
+  .description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #dce6ff;
+    margin: 10px 20px 30px 20px;
+    text-align: center;
+  }
+}
+
+/* Small phones adjustments */
+@media screen and (max-width: 576px) {
+  .content-box .title {
+    font-size: 28px;
+  }
+
+  .desc-label {
+    font-size: 20px;
+    width: 95%;
+    padding: 10px 15px;
+  }
+
+  .description {
+    font-size: 14px;
+    margin: 10px 15px 20px 15px;
+  }
+
+  .image-box img {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+
+  /* IMAGE BOX decorative borders */
+  .image-box::after {
+            top: -21px;
+        right: 90px;
+        width: 100%;
+        height: 405px;
+        border-top: 3px solid red;
+        border-left: 3px solid red;
+        z-index: 0;
+        left: -19px;
+  }
+
+  .image-box::before {
+    bottom: 10px;
+        left: -19px;
+        width: 21px;
+        height: 3px;
+        background: red;
+        z-index: 0;
+  }
+
+  .image-box .right-border {
+   right: 2px;
+        left: 447px;
+        top: -19px;
+        width: 3px;
+        height: 20px;
+  }
+
+  /* DESC LABEL decorative borders */
+  .desc-label::before {
+            left: 503px;
+        top: 603px;
+        width: 3px;
+        height: 14px;
+  }
+
+  .desc-label::after {
+          right: 582px;
+        bottom: 343px;
+        width: 3px;
+        height: 66px;
+  }
+
+  .desc-label span {
+    
+        top: 602px;
+        left: 60px;
+        width: 69%;
+        height: 3px;
+    
+  }
+  .desc-label .right-border {
+   right: 2px;
+        left: 447px;
+        top: -19px;
+        width: 3px;
+        height: 20px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .image-box::after {
+    top: -6px;
+    right: 2px;
+    width: 95%;
+    height: 2px;
+  }
+
+  .image-box::before {
+    bottom: 3px;
+    left: -4px;
+    width: 6px;
+    height: 2px;
+  }
+
+  .image-box .right-border {
+    right: 2px;
+    top: -6px;
+    width: 2px;
+    height: 10px;
+  }
+
+  .desc-label::before {
+    left: -2px;
+    top: 4px;
+    width: 2px;
+    height: 10px;
+  }
+
+  .desc-label::after {
+    right: 4px;
+    bottom: 8px;
+    width: 2px;
+    height: 6px;
+  }
+
+  .desc-label span {
+    top: -4px;
+    left: -5px;
+    height: 2px;
+  }
+}
