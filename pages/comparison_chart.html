@@ -2,10 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> ADVANCED CHILD
 5 YEAR OLD</title>
-<link rel="stylesheet" href="/css/manikin_golobal.css " >
+<link rel="stylesheet" href="/css/manikin_golobal.css" >
 <link rel="stylesheet" href="/css/comparison_chart.css">  
+<style>
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+  }
+
+  @media (max-width: 768px) {
+    .hero,
+    .hero-content,
+    .hero-blur-box,
+    .container,
+    .legend-wrapper,
+    .box {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box;
+    }
+
+    .hero-blur-box {
+      margin-left: 0 !important;
+      min-width: 0 !important;
+      padding-left: 14px !important;
+      padding-right: 14px !important;
+    }
+
+    .compare-table,
+    .table-wrapper,
+    .manikin-table-wrapper {
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .compare-table .tab table,
+    .skills-table,
+    .manikin-table {
+      width: max-content !important;
+    }
+  }
+</style>
 </head>
 
 <body>
@@ -158,7 +201,7 @@
       <span>Unavailable for this model</span>
     </div>
   </div>
-  <div class="scroll-dots" id="scrollDots"></div>
+  <div class="scroll-dots" id="compareScrollDots"></div>
 
 
 </div>
@@ -251,7 +294,7 @@
       <td colspan="10">C-Spine Control</td>
     </tr>
 
-    <tr>ٖٖ
+    <tr>
       <td>Spinal collar application</td>
       <td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td><td>❌</td><td>❌</td>
     </tr>
@@ -326,7 +369,8 @@
       <td>Chest compressions – manual</td>
       <td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td><td>❌</td>
     </tr>
-<td>Chest compressions –automatic </td>
+    <tr>
+      <td>Chest compressions –automatic </td>
       <td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td><td>❌</td><td>❌</td>
     </tr>
 
@@ -341,7 +385,7 @@
 </table>
 
 </div>
-<div class="scroll-dots" id="scrollDots"></div>
+<div class="scroll-dots" id="skillsScrollDots"></div>
 </div></div>
 
 
@@ -386,7 +430,7 @@
 <div class="legend">
   🟢 Included &nbsp;&nbsp; 🔴 Unavailable for this Model
 </div>
-  <div class="scroll-dots" id="scrollDots"></div>
+  <div class="scroll-dots" id="manikinScrollDots"></div>
 
 </div>
 
@@ -395,6 +439,7 @@
 
 <div id="footer-placeholder"></div>
 <script src="/js/comparison_chart.js"></script>
+
 
 
   <script>

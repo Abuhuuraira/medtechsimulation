@@ -2,8 +2,11 @@
   //first table
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("autoScrollTable");
+  if (!container) return;
+
   const table = container.querySelector("table");
-  const dotsContainer = document.getElementById("scrollDots");
+  const dotsContainer = document.getElementById("skillsScrollDots");
+  if (!table || !dotsContainer) return;
   const mobileQuery = window.matchMedia("(max-width: 768px)");
 
   let steps = [];
@@ -123,7 +126,8 @@ function setupAutoScroll() {
   stopAutoScroll();
   isPaused = false;
 
-  const dotsContainer = document.getElementById("scrollDots");
+  const dotsContainer = document.getElementById("compareScrollDots");
+  if (!dotsContainer) return;
   dotsContainer.innerHTML = "";
 
   const activeTab = document.querySelector(".tab.active table");
@@ -217,7 +221,8 @@ window.addEventListener("resize", () => {
   if (window.innerWidth <= 600) setupAutoScroll();
   else {
     stopAutoScroll();
-    document.getElementById("scrollDots").innerHTML = "";
+    const dotsContainer = document.getElementById("compareScrollDots");
+    if (dotsContainer) dotsContainer.innerHTML = "";
   }
 });
 
@@ -227,8 +232,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (window.innerWidth > 768) return;
 
   const wrapper = document.querySelector(".manikin-table-wrapper");
+  if (!wrapper) return;
+
   const table = wrapper.querySelector(".manikin-table");
-  const dotsContainer = document.getElementById("scrollDots");
+  const dotsContainer = document.getElementById("manikinScrollDots");
+  if (!table || !dotsContainer) return;
 
   let steps = [];
   let currentStep = 0;

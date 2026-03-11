@@ -782,7 +782,7 @@ img {
   left: -14px;
   right: 14px;
   width: auto;
-  height: calc(100% + 14px);
+  height: calc(100% + -5px);
   border-top: 4px solid red;
   border-left: 4px solid red;
 }

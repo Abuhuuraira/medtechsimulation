@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,6 +6,7 @@
   <title>PRO ADULT
 MANIKIN WOMEN </title>
 <link rel="stylesheet" href="/css/manikin_golobal.css">
+<link rel="stylesheet" href="/css/task_trainer_animations.css">
 </head>
 
 <body>
@@ -293,6 +294,17 @@ function openTab(event, tabId) {
     .catch(error => {
       console.error("Error loading footer:", error);
     });
+</script>
+
+<script>
+(function () {
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('tt-visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.manikin-section .image-box, .manikin-section .content-box, .manikin-wrapper-title, .manikin-tab').forEach(function(el) { io.observe(el); });
+})();
 </script>
 
 </body>

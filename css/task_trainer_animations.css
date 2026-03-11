@@ -1,0 +1,228 @@
+/* ==========================================================
+   TASK TRAINER — MODERN ANIMATIONS
+   ========================================================== */
+
+/* --- HERO SECTION ---------------------------------------- */
+
+/* Blur-box slides in from the left on load */
+.hero-blur-box {
+  animation: heroSlideIn 700ms cubic-bezier(.22,.8,.3,1) both;
+}
+
+@keyframes heroSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* H1 inside hero fades up 120ms after the box */
+.hero-blur-box h1 {
+  animation: fadeUp 600ms 120ms cubic-bezier(.22,.8,.3,1) both;
+}
+
+/* Chat button pops in after hero */
+.chat-btn {
+  animation: popIn 400ms 500ms cubic-bezier(.34,1.56,.64,1) both;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.chat-btn:hover {
+  transform: scale(1.07) translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* --- MANIKIN SECTION (image + description) --------------- */
+
+/* Image box: fade in from left */
+.manikin-section .image-box {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 650ms ease, transform 650ms cubic-bezier(.22,.8,.3,1);
+}
+
+.manikin-section .image-box.tt-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Image hover: subtle lift + glow */
+.manikin-section .image-box img {
+  transition: transform 320ms ease, filter 320ms ease;
+}
+
+.manikin-section .image-box:hover img {
+  transform: scale(1.025) translateY(-4px);
+  filter: drop-shadow(0 12px 28px rgba(0,0,0,0.45));
+}
+
+/* Content box: fade in from right, 120ms after image */
+.manikin-section .content-box {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 650ms 120ms ease, transform 650ms 120ms cubic-bezier(.22,.8,.3,1);
+}
+
+.manikin-section .content-box.tt-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Description title underline draw */
+.manikin-section .title {
+  position: relative;
+  display: inline-block;
+}
+
+.manikin-section .title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 3px;
+  width: 0;
+  background: #E41E26;
+  border-radius: 2px;
+  transition: width 500ms 380ms ease;
+}
+
+.manikin-section .content-box.tt-visible .title::after {
+  width: 60%;
+}
+
+/* desc-label badge slide in */
+.manikin-section .desc-label {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 400ms 280ms ease, transform 400ms 280ms ease;
+}
+
+.manikin-section .content-box.tt-visible .desc-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Paragraph description fade in */
+.manikin-section .description {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 500ms 400ms ease, transform 500ms 400ms ease;
+}
+
+.manikin-section .content-box.tt-visible .description {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* --- SECTION HEADING (MANIKIN DETAIL) -------------------- */
+
+.manikin-wrapper-title {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 500ms ease, transform 500ms cubic-bezier(.22,.8,.3,1);
+}
+
+.manikin-wrapper-title.tt-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* --- TABS ------------------------------------------------- */
+
+/* Tab buttons stagger up */
+.manikin-tab {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 400ms ease, transform 400ms ease, background 220ms ease, color 220ms ease;
+}
+
+.manikin-tab.tt-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger each tab */
+.manikin-tab:nth-child(1) { transition-delay: 50ms;  }
+.manikin-tab:nth-child(2) { transition-delay: 110ms; }
+.manikin-tab:nth-child(3) { transition-delay: 170ms; }
+.manikin-tab:nth-child(4) { transition-delay: 230ms; }
+.manikin-tab:nth-child(5) { transition-delay: 290ms; }
+
+
+/* --- PANEL LIST ITEMS ------------------------------------ */
+
+/* Each li animates when panel becomes active */
+.manikin-panel.active li {
+  animation: listItemIn 380ms cubic-bezier(.22,.8,.3,1) both;
+}
+
+.manikin-panel.active li:nth-child(1)  { animation-delay:  40ms; }
+.manikin-panel.active li:nth-child(2)  { animation-delay:  90ms; }
+.manikin-panel.active li:nth-child(3)  { animation-delay: 140ms; }
+.manikin-panel.active li:nth-child(4)  { animation-delay: 190ms; }
+.manikin-panel.active li:nth-child(5)  { animation-delay: 240ms; }
+.manikin-panel.active li:nth-child(6)  { animation-delay: 290ms; }
+.manikin-panel.active li:nth-child(7)  { animation-delay: 340ms; }
+.manikin-panel.active li:nth-child(8)  { animation-delay: 390ms; }
+.manikin-panel.active li:nth-child(9)  { animation-delay: 440ms; }
+.manikin-panel.active li:nth-child(10) { animation-delay: 490ms; }
+
+@keyframes listItemIn {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* --- SHARED UTILITIES ------------------------------------ */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .hero-blur-box,
+  .hero-blur-box h1,
+  .chat-btn,
+  .manikin-section .image-box,
+  .manikin-section .content-box,
+  .manikin-wrapper-title,
+  .manikin-tab,
+  .manikin-panel.active li {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
