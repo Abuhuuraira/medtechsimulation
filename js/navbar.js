@@ -2,6 +2,7 @@
   const hamburger = document.getElementById("hamburger");
   const mobileNav = document.getElementById("mobile-nav");
   const submenuToggles = mobileNav ? mobileNav.querySelectorAll('.submenu-toggle') : [];
+  const isLocalStaticHost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 
   // If navbar isn't injected yet, retry shortly
   if (!hamburger || !mobileNav) {
@@ -27,12 +28,25 @@
     closeSubmenus();
   }
 
+  function toLocalHtmlPath(pathname) {
+    if (pathname === '/') return '/index.html';
+    if (/\.[^/]+$/.test(pathname) || pathname.endsWith('/')) return pathname;
+    return `${pathname}.html`;
+  }
+
+  function localizeUrlForStaticServer(urlString) {
+    const url = new URL(urlString, window.location.origin);
+    if (!isLocalStaticHost || url.origin !== window.location.origin) return url.toString();
+    url.pathname = toLocalHtmlPath(url.pathname);
+    return url.toString();
+  }
+
   submenuToggles.forEach((toggle) => {
     toggle.addEventListener('click', (e) => {
       const arrowClicked = e.target.closest('.submenu-arrow');
       if (!arrowClicked) {
         if (toggle.dataset.href) {
-          window.location.href = toggle.dataset.href;
+          window.location.href = localizeUrlForStaticServer(toggle.dataset.href);
         }
         return;
       }
@@ -64,6 +78,24 @@
     link.addEventListener('click', () => {
       if (window.innerWidth <= 992) closeMenu();
     });
+  });
+
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href]');
+    if (!link) return;
+
+    const rawHref = link.getAttribute('href');
+    if (!rawHref || rawHref.startsWith('#') || rawHref.startsWith('mailto:') || rawHref.startsWith('tel:') || rawHref.startsWith('javascript:')) {
+      return;
+    }
+
+    const resolved = new URL(rawHref, window.location.origin);
+    if (!isLocalStaticHost || resolved.origin !== window.location.origin) return;
+    if (/\.[^/]+$/.test(resolved.pathname) || resolved.pathname.endsWith('/')) return;
+
+    e.preventDefault();
+    resolved.pathname = toLocalHtmlPath(resolved.pathname);
+    window.location.href = resolved.toString();
   });
 
   document.addEventListener('click', (e) => {
