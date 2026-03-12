@@ -12,7 +12,7 @@
 
     <nav id="mobile-nav" role="navigation" aria-label="Main site navigation" aria-hidden="true">
       <div class="nav-item has-submenu">
-        <button class="submenu-toggle" type="button" aria-expanded="false">
+        <button class="submenu-toggle" type="button" aria-expanded="false" data-href="/pages/manikin.html">
           <span>Manikin Catalog</span>
           <span class="submenu-arrow" aria-hidden="true">▾</span>
         </button>
@@ -35,7 +35,8 @@
       </div>
 
       <div class="nav-item has-submenu">
-        <button class="submenu-toggle" type="button" aria-expanded="false">
+        <button class="submenu-toggle" type="button" aria-expanded="false" data-href="/pages/task_trainer.html">
+          
           <span>Task Trainers</span>
           <span class="submenu-arrow" aria-hidden="true">▾</span>
         </button>
@@ -145,7 +146,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  cursor: default;
+  cursor: pointer;
 }
 
 .submenu-arrow {
@@ -156,8 +157,7 @@
   cursor: pointer;
 }
 
-.has-submenu.open > .submenu-toggle .submenu-arrow,
-.has-submenu:focus-within > .submenu-toggle .submenu-arrow {
+.has-submenu.open > .submenu-toggle .submenu-arrow {
   transform: rotate(180deg);
 }
 
@@ -177,8 +177,7 @@
 
 .navbar nav > a:hover::after,
 .navbar nav > .nav-item > .submenu-toggle:hover::after,
-.navbar nav > .nav-item.open > .submenu-toggle::after,
-.navbar nav > .nav-item:focus-within > .submenu-toggle::after {
+.navbar nav > .nav-item.open > .submenu-toggle::after {
   transform: scaleX(1);
 }
 
@@ -220,8 +219,7 @@
   background: rgba(255,255,255,0.08);
 }
 
-.has-submenu.open > .submenu,
-.has-submenu:focus-within > .submenu {
+.has-submenu.open > .submenu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);

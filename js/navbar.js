@@ -31,6 +31,9 @@
     toggle.addEventListener('click', (e) => {
       const arrowClicked = e.target.closest('.submenu-arrow');
       if (!arrowClicked) {
+        if (toggle.dataset.href) {
+          window.location.href = toggle.dataset.href;
+        }
         return;
       }
 

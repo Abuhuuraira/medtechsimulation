@@ -30,7 +30,7 @@ li{
 
 .hero-overlay {
   position: absolute;
-  inset: 0;
+  inset: 1;
   background: rgba(0, 0, 0, 0.45);
 }
 
@@ -831,12 +831,21 @@ img {
   padding: 14px 26px;
   font-size: clamp(1.4rem, 3vw, 2.2rem);
   line-height: 1.1;
-  border-left: 4px solid red;
-  box-shadow: -10px -10px 0 -8px red;
+  z-index: 0;
 }
 
 .desc-label::before {
-  display: none;
+  
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -12px;
+    width: 100%;
+    height: 100%;
+    border: 3px solid red;
+   z-index: 1;
+    background-color: transparent;
+
 }
 
 .desc-label::after {

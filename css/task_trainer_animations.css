@@ -90,17 +90,7 @@
   display: inline-block;
 }
 
-.manikin-section .title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  height: 3px;
-  width: 0;
-  background: #E41E26;
-  border-radius: 2px;
-  transition: width 500ms 380ms ease;
-}
+
 
 .manikin-section .content-box.tt-visible .title::after {
   width: 60%;
