@@ -11,11 +11,45 @@
     </div>
 
     <nav id="mobile-nav" role="navigation" aria-label="Main site navigation" aria-hidden="true">
-      <a href="/pages/manikin.html">Manikin Catalog</a>
-      <a href="/pages/task_trainer.html">Task Trainers</a>
+      <div class="nav-item has-submenu">
+        <button class="submenu-toggle" type="button" aria-expanded="false">
+          <span>Manikin Catalog</span>
+          <span class="submenu-arrow" aria-hidden="true">▾</span>
+        </button>
+        <div class="submenu" aria-hidden="true">
+          <a href="/Manikin_pages/ADVANCED CHILD 10 YEARS OLD.html">Advanced Child 10 Years Old</a>
+          <a href="/Manikin_pages/ADVANCED CHILD 5 YEARS OLD.html">Advanced Child 5 Years Old</a>
+          <a href="/Manikin_pages/ADVANCED INFANT MANIKIN 10 YEARS OLD.html">Advanced Infant Manikin 10 Years Old</a>
+          <a href="/Manikin_pages/ADVANCED MANIKIN MAN.html">Advanced Manikin Man</a>
+          <a href="/Manikin_pages/ADVANCED MANIKIN WOMEN.html">Advanced Manikin Women</a>
+          <a href="/Manikin_pages/ADVANCED PRE-TERM 28 WEEKS OLD.html">Advanced Pre-Term 28 Weeks Old</a>
+          <a href="/Manikin_pages/BLASTED ADULT MANIKIN.html">Blasted Adult Manikin</a>
+          <a href="/Manikin_pages/BURNT ADULT MANIKIN.html">Burnt Adult Manikin</a>
+          <a href="/Manikin_pages/EMS MAN MANIKIN.html">EMS Man Manikin</a>
+          <a href="/Manikin_pages/EMS WOMEN MANIKIN.html">EMS Women Manikin</a>
+          <a href="/Manikin_pages/PRO ADULT MANIKIN MAN.html">Pro Adult Manikin Man</a>
+          <a href="/Manikin_pages/PRO ADULT MANIKIN WOMEN.html">Pro Adult Manikin Women</a>
+          <a href="/Manikin_pages/PRO PLUS MEN MANIKIN.html">Pro Plus Men Manikin</a>
+          <a href="/Manikin_pages/PRO PLUS WOMEN MANIKIN.html">Pro Plus Women Manikin</a>
+        </div>
+      </div>
+
+      <div class="nav-item has-submenu">
+        <button class="submenu-toggle" type="button" aria-expanded="false">
+          <span>Task Trainers</span>
+          <span class="submenu-arrow" aria-hidden="true">▾</span>
+        </button>
+        <div class="submenu" aria-hidden="true">
+          <a href="/Task_Trainer_pages/EMS_TROSO_TRAINER.html">EMS Troso Trainer</a>
+          <a href="/Task_Trainer_pages/MAJOR_LEG_TRAUMA_TRAINER.html">Major Leg Trauma Trainer</a>
+          <a href="/Task_Trainer_pages/SHOULDER_PACKING_WOUND.html">Shoulder Packing Wound</a>
+          <a href="/Task_Trainer_pages/THIGH_ PACKING_WOUND.html">Thigh Packing Wound</a>
+        </div>
+      </div>
+
       <a href="/pages/comparison_chart.html">Comparison Chart</a>
-      <a href="/index.html">About Us</a>
-      <a href="/index.html">Contact Us</a>
+      <a href="/pages/about_us.html">About Us</a>
+      <a href="/pages/contact_us.html">Contact Us</a>
     </nav>
   </div>
 
@@ -69,6 +103,7 @@
   align-items: flex-end; /* 👈 push links to bottom */
   height: 100%;
   margin-top: 20px;
+  gap: clamp(12px, 1.8vw, 24px);
 }
 
 
@@ -89,19 +124,45 @@
   filter: brightness(1.05);
 }
 
-.navbar nav a {
+.navbar nav > a,
+.navbar nav > .nav-item > .submenu-toggle {
   position: relative;
   color: #fff;
   text-decoration: none;
-  margin-left: clamp(12px, 2.2vw, 28px);
+  margin-left: 0;
   font-size: 14px;
   text-transform: uppercase;
-   padding-bottom: 20px;  /* 👈 move closer to bottom */
+  padding: 0 0 20px;
   line-height: 1;
   transition: color 220ms ease;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
 }
 
-.navbar nav a::after {
+.submenu-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: default;
+}
+
+.submenu-arrow {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1;
+  transition: transform 220ms ease;
+  cursor: pointer;
+}
+
+.has-submenu.open > .submenu-toggle .submenu-arrow,
+.has-submenu:focus-within > .submenu-toggle .submenu-arrow {
+  transform: rotate(180deg);
+}
+
+.navbar nav > a::after,
+.navbar nav > .nav-item > .submenu-toggle::after {
   content: "";
   position: absolute;
   left: 0;
@@ -114,8 +175,56 @@
   transition: transform 240ms ease;
 }
 
-.navbar nav a:hover::after {
+.navbar nav > a:hover::after,
+.navbar nav > .nav-item > .submenu-toggle:hover::after,
+.navbar nav > .nav-item.open > .submenu-toggle::after,
+.navbar nav > .nav-item:focus-within > .submenu-toggle::after {
   transform: scaleX(1);
+}
+
+.nav-item {
+  position: relative;
+}
+
+.submenu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 320px;
+  background: rgb(31, 31, 31);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 220ms ease, transform 220ms ease, visibility 220ms ease;
+  z-index: 120;
+}
+
+.submenu a {
+  display: block;
+  margin: 0;
+  padding: 10px 14px;
+  font-size: 13px;
+  text-transform: none;
+  color: #fff;
+  text-decoration: none;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.submenu a:first-child {
+  border-top: none;
+}
+
+.submenu a:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.has-submenu.open > .submenu,
+.has-submenu:focus-within > .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 /* HAMBURGER ICON */
 .hamburger {
@@ -172,12 +281,10 @@
     height: 170px;
   }
 
-  /* show hamburger */
   .hamburger {
     display: flex;
   }
 
-  /* transform nav into collapsible panel */
   .navbar nav {
     position: absolute;
     top: 100%;
@@ -194,21 +301,65 @@
     transform-origin: top center;
   }
 
-  .navbar nav a {
+  .navbar nav > a,
+  .navbar nav > .nav-item > .submenu-toggle {
     margin: 0;
-            padding: 14px 337px;
+    padding: 14px 20px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
     border-top: 1px solid rgba(255,255,255,0.06);
     font-size: 15px;
   }
 
-  /* when menu is open */
+  .navbar nav > .nav-item {
+    width: 100%;
+  }
+
+  .navbar nav > .nav-item > .submenu-toggle {
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .navbar nav > .nav-item > .submenu-toggle::after {
+    display: none;
+  }
+
+  .submenu {
+    position: static;
+    min-width: 100%;
+    border: none;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    max-height: 450px;
+    overflow-y: auto;
+    transition: none;
+    background: rgba(255,255,255,0.03);
+    display: none;
+  }
+
+  .has-submenu.open > .submenu {
+    display: block;
+  }
+
+  .submenu a {
+    text-align: center;
+    font-size: 14px;
+    padding: 12px 20px;
+  }
+
   .navbar nav.active {
-            padding: 28px 0 182px;
-    max-height: 800px; /* large enough for menu, allows transition */
+    padding: 28px 0 461px;
+    max-height: 3200px;
+    overflow: visible;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
   }
 
-  /* Open animations: panel slide + item stagger */
   .navbar nav {
     transform: translateY(-6px);
     opacity: 0;
@@ -220,39 +371,40 @@
     opacity: 1;
   }
 
-  .navbar nav a {
+  .navbar nav > a,
+  .navbar nav > .nav-item > .submenu-toggle {
     opacity: 0;
     transform: translateY(-6px);
     transition: opacity 260ms ease, transform 260ms ease, background-color 200ms ease;
   }
 
-  .navbar nav a::after {
+  .navbar nav > a::after {
     display: none;
   }
 
-  .navbar nav a:hover {
+  .navbar nav > a:hover,
+  .navbar nav > .nav-item > .submenu-toggle:hover,
+  .submenu a:hover {
     background: rgba(255,255,255,0.06);
   }
 
-  .navbar nav.active a {
+  .navbar nav.active > a,
+  .navbar nav.active > .nav-item > .submenu-toggle {
     opacity: 1;
     transform: translateY(0);
   }
 
-  /* Staggered delays for up to 8 items */
-  .navbar nav.active a:nth-child(1) { transition-delay: 80ms; }
-  .navbar nav.active a:nth-child(2) { transition-delay: 140ms; }
-  .navbar nav.active a:nth-child(3) { transition-delay: 200ms; }
-  .navbar nav.active a:nth-child(4) { transition-delay: 260ms; }
-  .navbar nav.active a:nth-child(5) { transition-delay: 320ms; }
-  .navbar nav.active a:nth-child(6) { transition-delay: 380ms; }
-  .navbar nav.active a:nth-child(7) { transition-delay: 440ms; }
-  .navbar nav.active a:nth-child(8) { transition-delay: 500ms; }
+  .navbar nav.active > *:nth-child(1) { transition-delay: 80ms; }
+  .navbar nav.active > *:nth-child(2) { transition-delay: 140ms; }
+  .navbar nav.active > *:nth-child(3) { transition-delay: 200ms; }
+  .navbar nav.active > *:nth-child(4) { transition-delay: 260ms; }
+  .navbar nav.active > *:nth-child(5) { transition-delay: 320ms; }
+  .navbar nav.active > *:nth-child(6) { transition-delay: 380ms; }
+  .navbar nav.active > *:nth-child(7) { transition-delay: 440ms; }
+  .navbar nav.active > *:nth-child(8) { transition-delay: 500ms; }
 
-  /* Hamburger line animation smoothing */
   .hamburger span { transform-origin: center; }
 
-  /* Respect reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .navbar,
     .logo img,
@@ -279,48 +431,11 @@
   #mobile-nav a {
     border-top: none !important;
   }
+
+  #mobile-nav .submenu {
+    max-height: none !important;
+  }
 }
   </style>
 
-  <script>
-  const hamburger = document.getElementById("hamburger");
-  const mobileNav = document.getElementById("mobile-nav");
-
-  function closeMenu() {
-    mobileNav.classList.remove('active');
-    mobileNav.setAttribute('aria-hidden', 'true');
-    hamburger.classList.remove('active');
-    hamburger.setAttribute('aria-expanded', 'false');
-  }
-
-  hamburger.addEventListener("click", () => {
-    const isActive = mobileNav.classList.toggle("active");
-    hamburger.classList.toggle("active", isActive);
-    hamburger.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-    mobileNav.setAttribute('aria-hidden', isActive ? 'false' : 'true');
-  });
-
-  mobileNav.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      if (window.innerWidth <= 992) closeMenu();
-    });
-  });
-
-  document.addEventListener('click', (e) => {
-    const withinNav = e.target.closest('.navbar');
-    if (!withinNav && mobileNav.classList.contains('active')) {
-      closeMenu();
-    }
-  });
-
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 992) {
-      mobileNav.classList.remove('active');
-      mobileNav.setAttribute('aria-hidden', 'false');
-      hamburger.classList.remove('active');
-      hamburger.setAttribute('aria-expanded', 'false');
-    } else {
-      mobileNav.setAttribute('aria-hidden', mobileNav.classList.contains('active') ? 'false' : 'true');
-    }
-  });
-</script>
+  <!-- Navbar JS is loaded by each page via /js/navbar.js after fetch injection -->

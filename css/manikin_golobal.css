@@ -1133,7 +1133,7 @@ img {
     top: -10px;
     left: -10px;
     right: 10px;
-    height: calc(100% + 10px);
+    height: calc(100% + -3px);
     border-top-width: 3px;
     border-left-width: 3px;
   }
