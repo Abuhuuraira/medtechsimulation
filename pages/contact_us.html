@@ -23,21 +23,21 @@
     <button class="chat-btn">ðŸ’¬ Chat With Us!</button>
   </section>
 
-  <section class="contact-simple-wrap">
+  <section class="contact-simple-wrap reveal-on-scroll" data-reveal="left" style="--reveal-delay: 70ms;">
     <div class="contact-simple-grid">
-      <aside class="contact-simple-info">
+      <aside class="contact-simple-info reveal-on-scroll" style="--reveal-delay: 130ms;">
         <div class="contact-tag">Get In Touch</div>
-        <h2>Letâ€™s Talk</h2>
+        <h2>Let's Talk</h2>
         <p>Need product support, pricing, or training guidance? Send your details and our team will reach out shortly.</p>
 
         <div class="simple-info-list">
-          <div><span>Email</span><a href="mailto:info@medtechsimulation.com">info@medtechsimulation.com</a></div>
-          <div><span>Phone</span><a href="tel:+10000000000">+1 (000) 000-0000</a></div>
-          <div><span>Hours</span><p>Mon - Fri, 9:00 AM - 6:00 PM</p></div>
+          <div class="reveal-on-scroll" style="--reveal-delay: 180ms;"><span>Email</span><a href="mailto:info@medtechsimulation.com">info@medtechsimulation.com</a></div>
+          <div class="reveal-on-scroll" style="--reveal-delay: 230ms;"><span>Phone</span><a href="tel:+10000000000">+1 (000) 000-0000</a></div>
+          <div class="reveal-on-scroll" style="--reveal-delay: 280ms;"><span>Hours</span><p>Mon - Fri, 9:00 AM - 6:00 PM</p></div>
         </div>
       </aside>
 
-      <form class="contact-simple-form">
+      <form class="contact-simple-form reveal-on-scroll" data-reveal="right" style="--reveal-delay: 150ms;">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
         <textarea name="message" placeholder="How can we help you?" required></textarea>
@@ -74,6 +74,30 @@
       .catch(error => {
         console.error("Error loading footer:", error);
       });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const revealElements = document.querySelectorAll(".about-contact-page .reveal-on-scroll");
+
+      if (!("IntersectionObserver" in window)) {
+        revealElements.forEach((element) => element.classList.add("is-visible"));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        });
+      }, {
+        threshold: 0.18,
+        rootMargin: "0px 0px -8% 0px"
+      });
+
+      revealElements.forEach((element) => observer.observe(element));
+    });
   </script>
 
 <script src="/js/navbar.js"></script>

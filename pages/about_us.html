@@ -28,7 +28,7 @@
     <button class="chat-btn">ðŸ’¬ Chat With Us!</button>
   </section>
 
-  <section class="intro-section">
+  <section class="intro-section reveal-on-scroll" data-reveal="left" style="--reveal-delay: 80ms;">
     <div class="eyebrow">MEDTECH SIMULATION</div>
     <h2>Who We Are</h2>
     <p>MedTech Simulation develops high-fidelity manikins and task trainers for modern emergency, trauma, and critical care education. Our mission is to help medical teams train with confidence through realistic, durable, and anatomically accurate simulation tools.</p>
@@ -41,53 +41,53 @@
   </section>
 
   <section class="stats-section">
-    <article class="stat-card">
+    <article class="stat-card reveal-on-scroll" style="--reveal-delay: 90ms;">
       <h3>Real-World Focus</h3>
       <p>Scenario-first products designed around practical interventions and emergency workflows.</p>
     </article>
-    <article class="stat-card">
+    <article class="stat-card reveal-on-scroll" style="--reveal-delay: 160ms;">
       <h3>High Fidelity</h3>
       <p>Anatomically accurate training surfaces and procedure zones for realistic repetition.</p>
     </article>
-    <article class="stat-card">
+    <article class="stat-card reveal-on-scroll" style="--reveal-delay: 230ms;">
       <h3>Education Driven</h3>
       <p>Built with instructors and clinicians to improve speed, confidence, and skill retention.</p>
     </article>
   </section>
 
-  <section class="values-section">
+  <section class="values-section reveal-on-scroll" data-reveal="right" style="--reveal-delay: 100ms;">
     <h2>What We Stand For</h2>
     <div class="values-grid">
-      <article class="value-card">
+      <article class="value-card reveal-on-scroll" style="--reveal-delay: 110ms;">
         <h3>Clinical Realism</h3>
         <p>Every product is built to reflect real intervention workflows and decision making under pressure.</p>
       </article>
-      <article class="value-card">
+      <article class="value-card reveal-on-scroll" style="--reveal-delay: 180ms;">
         <h3>Training Impact</h3>
         <p>We design for repeatable, measurable skill development across hospitals, EMS, and academic centers.</p>
       </article>
-      <article class="value-card">
+      <article class="value-card reveal-on-scroll" style="--reveal-delay: 250ms;">
         <h3>Long-Term Reliability</h3>
         <p>Our materials and construction prioritize durability for frequent use in demanding training environments.</p>
       </article>
     </div>
   </section>
 
-  <section class="story-section">
+  <section class="story-section reveal-on-scroll" data-reveal="left" style="--reveal-delay: 120ms;">
     <h2>Our Approach</h2>
     <p>We work closely with clinicians, instructors, and simulation teams to translate field requirements into practical training systems. From hemorrhage control to airway and circulation interventions, each model is engineered to support realistic, high-value scenarios that improve readiness.</p>
     <div class="journey-grid">
-      <div class="journey-step">
+      <div class="journey-step reveal-on-scroll" style="--reveal-delay: 120ms;">
         <span>01</span>
         <h3>Discover</h3>
         <p>We gather real training pain points from medical teams and simulation centers.</p>
       </div>
-      <div class="journey-step">
+      <div class="journey-step reveal-on-scroll" style="--reveal-delay: 190ms;">
         <span>02</span>
         <h3>Design</h3>
         <p>We shape each model for realism, repeatability, and long-term training value.</p>
       </div>
-      <div class="journey-step">
+      <div class="journey-step reveal-on-scroll" style="--reveal-delay: 260ms;">
         <span>03</span>
         <h3>Deliver</h3>
         <p>We support implementation with product guidance focused on measurable outcomes.</p>
@@ -95,11 +95,11 @@
     </div>
   </section>
 
-  <section class="team-section">
+  <section class="team-section reveal-on-scroll" data-reveal="right" style="--reveal-delay: 120ms;">
     <h2>Owner & Partners</h2>
     <p class="team-sub">Add your founder and partner organization profiles here. Replace the sample images and text with your real team details.</p>
 
-    <div class="owner-card">
+    <div class="owner-card reveal-on-scroll" style="--reveal-delay: 150ms;">
       <div class="profile-image-wrap">
         <img src="/static_files/images/Image_coming soon.avif" alt="Owner Image">
       </div>
@@ -111,7 +111,7 @@
     </div>
 
     <div class="partners-grid">
-      <article class="partner-card">
+      <article class="partner-card reveal-on-scroll" style="--reveal-delay: 160ms;">
         <div class="profile-image-wrap small">
           <img src="/static_files/images/Image_coming soon.avif" alt="Partner 1 Image">
         </div>
@@ -119,7 +119,7 @@
         <p>Add partner name and a short collaboration description.</p>
       </article>
 
-      <article class="partner-card">
+      <article class="partner-card reveal-on-scroll" style="--reveal-delay: 220ms;">
         <div class="profile-image-wrap small">
           <img src="/static_files/images/Image_coming soon.avif" alt="Partner 2 Image">
         </div>
@@ -127,7 +127,7 @@
         <p>Add partner name and a short collaboration description.</p>
       </article>
 
-      <article class="partner-card">
+      <article class="partner-card reveal-on-scroll" style="--reveal-delay: 280ms;">
         <div class="profile-image-wrap small">
           <img src="/static_files/images/Image_coming soon.avif" alt="Partner 3 Image">
         </div>
@@ -165,6 +165,30 @@
       .catch(error => {
         console.error("Error loading footer:", error);
       });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const revealElements = document.querySelectorAll(".about-contact-page .reveal-on-scroll");
+
+      if (!("IntersectionObserver" in window)) {
+        revealElements.forEach((element) => element.classList.add("is-visible"));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        });
+      }, {
+        threshold: 0.18,
+        rootMargin: "0px 0px -8% 0px"
+      });
+
+      revealElements.forEach((element) => observer.observe(element));
+    });
   </script>
 
 <script src="/js/navbar.js"></script>
