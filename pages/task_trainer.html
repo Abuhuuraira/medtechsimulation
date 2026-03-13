@@ -430,6 +430,78 @@ html, body {
   .title-wrapper::after { right: -8px; }
   .navbar { padding-left: 12px; padding-right: 12px; }
 }
+
+/* ---------- TASK TRAINER PAGE ANIMATIONS (match site style) ---------- */
+.task-section .title-wrapper,
+.task-section .description,
+.ems-left,
+.ems-container .image-box,
+.ems-container .image-frame,
+.feature-wrapper,
+.learn-btn,
+.learn-btn2 {
+  opacity: 0;
+}
+
+.task-section .title-wrapper {
+  transform: translateY(24px);
+  transition: opacity 550ms ease, transform 550ms cubic-bezier(.22,.8,.3,1);
+}
+
+.task-section .description {
+  transform: translateY(18px);
+  transition: opacity 600ms 120ms ease, transform 600ms 120ms cubic-bezier(.22,.8,.3,1);
+}
+
+.ems-left {
+  transform: translateX(-36px);
+  transition: opacity 650ms ease, transform 650ms cubic-bezier(.22,.8,.3,1);
+}
+
+.ems-container .image-box,
+.ems-container .image-frame {
+  transform: translateX(36px);
+  transition: opacity 650ms 100ms ease, transform 650ms 100ms cubic-bezier(.22,.8,.3,1);
+}
+
+.feature-wrapper {
+  transform: translateY(14px);
+  transition: opacity 420ms 120ms ease, transform 420ms 120ms ease;
+}
+
+.learn-btn,
+.learn-btn2 {
+  transform: translateY(10px);
+  transition: opacity 360ms 220ms ease, transform 360ms 220ms ease, background 300ms ease;
+}
+
+.task-section .title-wrapper.tt-visible,
+.task-section .description.tt-visible,
+.ems-left.tt-visible,
+.ems-container .image-box.tt-visible,
+.ems-container .image-frame.tt-visible,
+.feature-wrapper.tt-visible,
+.learn-btn.tt-visible,
+.learn-btn2.tt-visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .task-section .title-wrapper,
+  .task-section .description,
+  .ems-left,
+  .ems-container .image-box,
+  .ems-container .image-frame,
+  .feature-wrapper,
+  .learn-btn,
+  .learn-btn2 {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
     </style>
 </head>
 <body>
@@ -452,7 +524,7 @@ TASK<br>
 
 
     <!-- CHAT BUTTON -->
-    <button class="chat-btn">ðŸ’¬ Chat With Us!</button>
+    <button class="chat-btn"> Chat With Us!</button>
   </section>
 
 
@@ -498,7 +570,7 @@ TASK<br>
         <li>Moulage not included, surgical ready.</li>
       </ul>
 
-      <a href="#" class="learn-btn">Learn more â€º</a>
+      <a href="/task_trainer_pages/ems_troso_trainer.html" class="learn-btn">Learn more </a>
     </div>
 
      <!-- LEFT IMAGE BOX -->
@@ -540,7 +612,7 @@ TASK<br>
         <li>Portable, lightweight training solution.</li>
       </ul>
 
-      <a href="#" class="learn-btn2">Learn more â€º</a>
+      <a href="/task_trainer_pages/major_leg_trauma_trainer.html" class="learn-btn2">Learn more </a>
     </div>
 
     <!-- IMAGE -->
@@ -582,7 +654,7 @@ TASK<br>
         <li>Easy setup for any training.</li>
       </ul>
 
-      <a href="#" class="learn-btn">Learn more â€º</a>
+      <a href="/task_trainer_pages/shoulder_packing_wound.html" class="learn-btn">Learn more </a>
     </div>
 
      <!-- LEFT IMAGE BOX -->
@@ -623,7 +695,7 @@ TASK<br>
         <li>Compatible with all training environments.</li>
       </ul>
 
-      <a href="#" class="learn-btn2">Learn more â€º</a>
+      <a href="/task_trainer_pages/thigh_packing_wound.html" class="learn-btn2">Learn more </a>
     </div>
 
     <!-- IMAGE -->
@@ -700,6 +772,24 @@ window.addEventListener('resize', () => {
   clearTimeout(_reorderTimer);
   _reorderTimer = setTimeout(reorderEmsImages, 120);
 });
+</script>
+<script>
+(function () {
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('tt-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll(
+    '.task-section .title-wrapper, .task-section .description, .ems-left, .ems-container .image-box, .ems-container .image-frame, .feature-wrapper, .learn-btn, .learn-btn2'
+  ).forEach(function (el) {
+    io.observe(el);
+  });
+})();
 </script>
     
 
