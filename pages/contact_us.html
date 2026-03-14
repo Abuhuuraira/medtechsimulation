@@ -20,7 +20,7 @@
         <p class="hero-subtext">Simple communication. Fast response. Professional support.</p>
       </div>
     </div>
-    <button class="chat-btn">ðŸ’¬ Chat With Us!</button>
+    <button class="chat-btn"> Chat With Us!</button>
   </section>
 
   <section class="contact-simple-wrap reveal-on-scroll" data-reveal="left" style="--reveal-delay: 70ms;">
@@ -37,11 +37,13 @@
         </div>
       </aside>
 
-      <form class="contact-simple-form reveal-on-scroll" data-reveal="right" style="--reveal-delay: 150ms;">
+      <form id="contact-form" class="contact-simple-form reveal-on-scroll" data-reveal="right" style="--reveal-delay: 150ms;" method="POST" action="../api/contact.php">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
         <textarea name="message" placeholder="How can we help you?" required></textarea>
         <button type="submit">Send Message</button>
+        <p id="form-status" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>
@@ -101,6 +103,122 @@
   </script>
 
 <script src="/js/navbar.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contact-form");
+    const status = document.getElementById("form-status");
+    if (!form || !status) return;
+
+    const submitButton = form.querySelector("button[type='submit']");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      status.textContent = "Sending your message...";
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+      }
+
+      try {
+        if (window.location.protocol === "file:") {
+          throw new Error("Please run the site on localhost or live hosting. PHP form submission does not work from file://.");
+        }
+
+        const formData = new FormData(form);
+        const configuredEndpoint = form.getAttribute("action") || "../api/contact.php";
+
+        const configuredUrl = new URL(configuredEndpoint, window.location.href);
+        const relativeUrl = new URL("../api/contact.php", window.location.href);
+        const rootUrl = new URL("/api/contact.php", window.location.origin);
+
+        const currentPath = window.location.pathname;
+        const fromPagesPath = currentPath.replace(/\/pages\/[^/]+\/?$/, "/api/contact.php");
+        const pagesUrl = fromPagesPath !== currentPath
+          ? new URL(fromPagesPath, window.location.origin)
+          : null;
+
+        const endpoints = Array.from(new Set([
+          configuredUrl.href,
+          pagesUrl ? pagesUrl.href : "",
+          relativeUrl.href,
+          rootUrl.href
+        ].filter(Boolean)));
+
+        let response = null;
+        let result = null;
+        let lastError = null;
+        let lastFailureDetails = "";
+
+        for (const endpoint of endpoints) {
+          try {
+            response = await fetch(endpoint, {
+              method: "POST",
+              headers: {
+                "Accept": "application/json"
+              },
+              body: formData
+            });
+
+            const rawResponse = await response.text();
+            const contentType = (response.headers.get("content-type") || "").toLowerCase();
+            const isJsonHeader = contentType.includes("application/json");
+
+            if (response.status === 405 && !isJsonHeader) {
+              throw new Error("PHP is not executing on this local server (likely static Live Server on port 5500). Run with a PHP server: php -S 127.0.0.1:8000, then open http://127.0.0.1:8000/pages/contact_us.html");
+            }
+
+            if (rawResponse) {
+              try {
+                result = JSON.parse(rawResponse);
+              } catch (parseError) {
+                if (!isJsonHeader) {
+                  const preview = rawResponse.replace(/\s+/g, " ").trim().slice(0, 120);
+                  throw new Error(`Endpoint ${endpoint} returned non-JSON response (${response.status}). ${preview || "No response body."}`);
+                }
+
+                throw new Error("Server returned invalid JSON. Please contact support.");
+              }
+            } else {
+              result = null;
+            }
+
+            if (!isJsonHeader && result === null) {
+              throw new Error(`Endpoint ${endpoint} did not return JSON (${response.status}).`);
+            }
+
+            if (!response.ok || !result || !result.success) {
+              throw new Error((result && result.message) || "Unable to submit the form right now.");
+            }
+
+            lastError = null;
+            break;
+          } catch (endpointError) {
+            lastError = endpointError;
+            lastFailureDetails = `Tried: ${endpoint}${response ? ` (HTTP ${response.status})` : ""}`;
+            response = null;
+            result = null;
+          }
+        }
+
+        if (lastError) {
+          const baseMessage = (lastError && lastError.message) ? lastError.message : "Unable to submit the form right now.";
+          throw new Error(`${baseMessage} ${lastFailureDetails}`.trim());
+        }
+
+        status.textContent = "Thank you. Your message was sent successfully.";
+        form.reset();
+      } catch (error) {
+        status.textContent = error.message || "Something went wrong. Please try again.";
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = "Send Message";
+        }
+      }
+    });
+  });
+</script>
 </body>
 </html>
 
