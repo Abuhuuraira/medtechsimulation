@@ -41,6 +41,69 @@
     return url.toString();
   }
 
+  function normalizePathname(pathname) {
+    if (!pathname) return '/';
+
+    let normalized = pathname;
+    if (!normalized.startsWith('/')) normalized = `/${normalized}`;
+
+    normalized = normalized.replace(/\/index(?:\.html)?$/i, '/');
+    normalized = normalized.replace(/\.html$/i, '');
+
+    if (normalized.length > 1) {
+      normalized = normalized.replace(/\/+$/, '');
+    }
+
+    return normalized || '/';
+  }
+
+  function markActiveNavItem() {
+    const currentPath = normalizePathname(window.location.pathname);
+
+    mobileNav.querySelectorAll('a.active-link').forEach((link) => {
+      link.classList.remove('active-link');
+      link.removeAttribute('aria-current');
+    });
+
+    mobileNav.querySelectorAll('.submenu-toggle.active-parent').forEach((toggle) => {
+      toggle.classList.remove('active-parent');
+      toggle.removeAttribute('aria-current');
+    });
+
+    mobileNav.querySelectorAll('a[href]').forEach((link) => {
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('#')) return;
+
+      const resolved = new URL(href, window.location.origin);
+      if (resolved.origin !== window.location.origin) return;
+
+      const targetPath = normalizePathname(resolved.pathname);
+      if (targetPath === currentPath) {
+        link.classList.add('active-link');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+
+    mobileNav.querySelectorAll('.submenu-toggle[data-href]').forEach((toggle) => {
+      const parentPath = normalizePathname(toggle.dataset.href || '');
+      if (!parentPath) return;
+
+      const hasExactMatch = parentPath === currentPath;
+      const hasPathMatch = parentPath !== '/' && currentPath.startsWith(`${parentPath}/`);
+      const submenu = toggle.closest('.has-submenu')?.querySelector('.submenu');
+      const hasActiveChild = submenu ? Boolean(submenu.querySelector('a.active-link')) : false;
+
+      if (hasExactMatch || hasPathMatch || hasActiveChild) {
+        toggle.classList.add('active-parent');
+        if (hasExactMatch) {
+          toggle.setAttribute('aria-current', 'page');
+        }
+      }
+    });
+  }
+
+  markActiveNavItem();
+
   submenuToggles.forEach((toggle) => {
     toggle.addEventListener('click', (e) => {
       const arrowClicked = e.target.closest('.submenu-arrow');

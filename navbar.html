@@ -151,7 +151,7 @@
 
 .submenu-arrow {
   display: inline-block;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1;
   transition: transform 220ms ease;
   cursor: pointer;
@@ -177,8 +177,21 @@
 
 .navbar nav > a:hover::after,
 .navbar nav > .nav-item > .submenu-toggle:hover::after,
-.navbar nav > .nav-item.open > .submenu-toggle::after {
+.navbar nav > .nav-item.open > .submenu-toggle::after,
+.navbar nav > a.active-link::after,
+.navbar nav > .nav-item > .submenu-toggle.active-parent::after {
   transform: scaleX(1);
+}
+
+.navbar nav > a.active-link,
+.navbar nav > .nav-item > .submenu-toggle.active-parent {
+  color: #ff3b3b;
+  text-shadow: 0 0 14px rgba(255, 59, 59, 0.28);
+}
+
+.navbar nav > a.active-link::after,
+.navbar nav > .nav-item > .submenu-toggle.active-parent::after {
+  background: #ff3b3b;
 }
 
 .nav-item {
@@ -217,6 +230,11 @@
 
 .submenu a:hover {
   background: rgba(255,255,255,0.08);
+}
+
+.submenu a.active-link {
+  color: #ff3b3b;
+  background: rgba(255,59,59,0.16);
 }
 
 .has-submenu.open > .submenu {
@@ -382,6 +400,9 @@
 
   .navbar nav > a:hover,
   .navbar nav > .nav-item > .submenu-toggle:hover,
+  .navbar nav > a.active-link,
+  .navbar nav > .nav-item > .submenu-toggle.active-parent,
+  .submenu a.active-link,
   .submenu a:hover {
     background: rgba(255,255,255,0.06);
   }
