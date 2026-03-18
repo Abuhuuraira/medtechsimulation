@@ -801,7 +801,7 @@ img {
 .image-box::before {
   left: -14px;
   bottom: 14px;
-  width: 18px;
+  width: 14px;
   height: 4px;
 }
 
@@ -809,7 +809,7 @@ img {
   top: -14px;
   right: 14px;
   width: 4px;
-  height: 18px;
+  height: 14px;
 }
 
 .image-box img {

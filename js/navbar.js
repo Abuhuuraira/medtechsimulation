@@ -102,7 +102,39 @@
     });
   }
 
+  function markActiveFooterLinks(retriesLeft = 10) {
+    const footer = document.querySelector('.site-footer');
+    if (!footer) {
+      if (retriesLeft > 0) {
+        setTimeout(() => markActiveFooterLinks(retriesLeft - 1), 120);
+      }
+      return;
+    }
+
+    const currentPath = normalizePathname(window.location.pathname);
+
+    footer.querySelectorAll('a.active-link').forEach((link) => {
+      link.classList.remove('active-link');
+      link.removeAttribute('aria-current');
+    });
+
+    footer.querySelectorAll('a[href]').forEach((link) => {
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('#')) return;
+
+      const resolved = new URL(href, window.location.origin);
+      if (resolved.origin !== window.location.origin) return;
+
+      const targetPath = normalizePathname(resolved.pathname);
+      if (targetPath === currentPath) {
+        link.classList.add('active-link');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+  }
+
   markActiveNavItem();
+  markActiveFooterLinks();
 
   submenuToggles.forEach((toggle) => {
     toggle.addEventListener('click', (e) => {

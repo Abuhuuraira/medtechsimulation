@@ -202,7 +202,7 @@
   position: absolute;
   top: calc(100% + 10px);
   left: 0;
-  min-width: 320px;
+  min-width: 240px;
   background: rgb(31, 31, 31);
   border: 1px solid rgba(255,255,255,0.08);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
@@ -221,7 +221,10 @@
   text-transform: none;
   color: #fff;
   text-decoration: none;
-  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.submenu a:not(:last-child) {
+    border-bottom: 1px dotted #fff;
 }
 
 .submenu a:first-child {

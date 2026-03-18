@@ -135,7 +135,7 @@ h4{
   left: 0;
   bottom: -2px;
   width: 100%;
-  height: 1px;
+  height: 2px;
   background: #ffffff;
   transform: scaleX(0);
   transform-origin: left center;
@@ -144,6 +144,18 @@ h4{
 
 .footer-links a:hover::after,
 .footer-col.follow-us a:hover::after {
+  transform: scaleX(1);
+}
+
+.footer-links a.active-link,
+.footer-col.follow-us a.active-link {
+  color: #ff3b3b;
+  text-shadow: 0 0 14px rgba(255, 59, 59, 0.28);
+}
+
+.footer-links a.active-link::after,
+.footer-col.follow-us a.active-link::after {
+  background: #ff3b3b;
   transform: scaleX(1);
 }
 
