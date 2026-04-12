@@ -14,7 +14,7 @@ if errorlevel 1 (
 
 set "HOST=127.0.0.1"
 set "PORT=8000"
-set "URL=http://%HOST%:%PORT%/pages/contact_us.html"
+set "URL=http://%HOST%:%PORT%/contact-us"
 
 echo Starting PHP local server at http://%HOST%:%PORT%/
 echo Contact page: %URL%

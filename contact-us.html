@@ -165,7 +165,7 @@
             const isJsonHeader = contentType.includes("application/json");
 
             if (response.status === 405 && !isJsonHeader) {
-              throw new Error("PHP is not executing on this local server (likely static Live Server on port 5500). Run with a PHP server: php -S 127.0.0.1:8000, then open http://127.0.0.1:8000/pages/contact_us.html");
+              throw new Error("PHP is not executing on this local server (likely static Live Server on port 5500). Run with a PHP server: php -S 127.0.0.1:8000, then open http://127.0.0.1:8000/contact-us");
             }
 
             if (rawResponse) {

@@ -2,7 +2,7 @@
 
 ## Contact form backend
 
-The contact form on `pages/contact_us.html` now submits to `api/contact.php`.
+The contact form on `contact-us.html` now submits to `api/contact.php`.
 
 - The frontend auto-detects the API URL, so the same code works on localhost and Hostinger.
 - Supported deployment styles: domain root (for example `/api/contact.php`) and subfolder installs (for example `/your-folder/api/contact.php`).
@@ -19,7 +19,7 @@ The contact form on `pages/contact_us.html` now submits to `api/contact.php`.
 
 ### Functional requirements checklist
 
-- Contact page can POST to `api/contact.php` from both `/pages/contact_us` and `/pages/contact_us.html` routes.
+- Contact page can POST to `api/contact.php` from both `/contact-us` and `/contact-us.html` routes.
 - Backend validates required fields (`name`, `email`, `message`) and email format.
 - Honeypot field (`website`) blocks basic bot submissions.
 - Valid submissions are appended to `data/contact_submissions.jsonl`.
@@ -65,13 +65,13 @@ iisreset
 ```
 
 5. Test
-	- Submit the contact form from `pages/contact_us.html`.
+	- Submit the contact form from `contact-us.html`.
 	- Confirm new entries are saved in `data/contact_submissions.jsonl`.
 	- Confirm admin inbox receives the notification email.
 
 ### Localhost quick start (Windows)
 
 - Double-click `start-php-local.bat` in the project root.
-- It starts PHP at `http://127.0.0.1:8000` and opens `pages/contact_us.html` automatically.
+- It starts PHP at `http://127.0.0.1:8000` and opens `contact-us` automatically.
 - Keep that terminal window open while testing the contact form.
 - Press `Ctrl + C` in that window to stop the local server.
